@@ -1,7 +1,7 @@
 ﻿Fluxogrammer
-1.0.0.0
 
-winexe
+
+exe
 C#
 .cs
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_O
 S:\Projetos\Fluxogrammer\App.xaml
 1-170516464
 
-5946618598
+41176394463
 2061601768811
 Source\View\MainWindow.xaml;
 
-True
+False
 
