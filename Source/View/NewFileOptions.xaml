@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:Fluxogrammer"
         mc:Ignorable="d"
         Title="Novo Fluxograma" Height="450" Width="350">
-    <Canvas x:Name="canvasRoot" Background="White">
+
+    <Window.Resources>
+        <Style x:Key="BotaoCreate" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>  
+    </Window.Resources>
 
     <Grid Height="450" Width="350">
         <Grid.Background>
@@ -17,9 +37,17 @@
         </Grid.Background>
 
         <Canvas>
-            <Label x:Name="LblTest" Content="Criar novo Fluxograma" Canvas.Left="77.5" HorizontalAlignment="Left"
-            FontSize="18" Width="195"/>
+            <Label Content="Criar novo Fluxograma" Canvas.Left="77" Canvas.Top="20"
+            HorizontalAlignment="Left" FontSize="18" Width="195"/>
+
+            <Label Canvas.Top="66" Canvas.Left="10" Content="Nome Do Projeto" Height="28" Width="120" 
+            FontSize="14" HorizontalContentAlignment="Center"/>
+
+            <TextBox x:Name="PutName" Canvas.Top="70" Canvas.Left="130" HorizontalContentAlignment="Left" Width="180"
+            Height="22" FontSize="16" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+
+            <Button x:Name="CreateNew" Content="Criar novo projeto" FontSize="16" Height="26"
+            Width="140" Canvas.Bottom="46" Canvas.Left="105" Style="{StaticResource BotaoCreate}"/>
         </Canvas>
     </Grid>
-</Canvas>
 </Window>
