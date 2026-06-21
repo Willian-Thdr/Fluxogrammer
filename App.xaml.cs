@@ -17,10 +17,10 @@ public partial class App : Application
         base.OnStartup(e);
     }
 
-    protected override void OnExit(ExitEventArgs e)
-    {
-        AllocConsole();
-        base.OnExit(e);
-    }
+    // protected override void OnExit(ExitEventArgs e)
+    // {
+        // AllocConsole();
+        // base.OnExit(e);
+    // }
 }
 

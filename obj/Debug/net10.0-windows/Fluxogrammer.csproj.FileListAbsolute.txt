@@ -24,10 +24,12 @@ S:\Projetos\Fluxogrammer\bin\Debug\net10.0-windows\Fluxogrammer.runtimeconfig.js
 S:\Projetos\Fluxogrammer\bin\Debug\net10.0-windows\Fluxogrammer.dll
 S:\Projetos\Fluxogrammer\bin\Debug\net10.0-windows\Fluxogrammer.pdb
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Source\View\MainWindow.g.cs
+S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Source\View\NewFileOptions.g.cs
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\App.g.cs
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Fluxogrammer_MarkupCompile.cache
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Fluxogrammer_MarkupCompile.lref
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Source\View\MainWindow.baml
+S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Source\View\NewFileOptions.baml
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Fluxogrammer.g.resources
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Fluxogrammer.GeneratedMSBuildEditorConfig.editorconfig
 S:\Projetos\Fluxogrammer\obj\Debug\net10.0-windows\Fluxogrammer.AssemblyInfoInputs.cache
