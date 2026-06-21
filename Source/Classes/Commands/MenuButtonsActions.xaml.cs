@@ -7,7 +7,8 @@ public class MenuButtonsActions
     {
         component.Click += (s, e) =>
         {
-            Console.WriteLine("Novo");
+            Console.WriteLine("Criar");
+            CallNFO.Connect();
         };
     }
 
