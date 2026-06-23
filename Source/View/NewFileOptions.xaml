@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fluxogrammer"
         mc:Ignorable="d"
-        Title="Novo Fluxograma" Height="450" Width="350">
+        Title="Novo Fluxograma" Height="435" Width="365">
 
     <Window.Resources>
         <Style x:Key="BotaoCreate" TargetType="Button">
@@ -28,7 +28,7 @@
         </Style>  
     </Window.Resources>
 
-    <Grid Height="450" Width="350">
+    <Grid Height="400" Width="350">
         <Grid.Background>
             <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                 <GradientStop Color="#5B1094" Offset="0"/>
@@ -43,11 +43,16 @@
             <Label Canvas.Top="66" Canvas.Left="10" Content="Nome Do Projeto" Height="28" Width="120" 
             FontSize="14" HorizontalContentAlignment="Center"/>
 
-            <TextBox x:Name="PutName" Canvas.Top="70" Canvas.Left="130" HorizontalContentAlignment="Left" Width="180"
+            <TextBox x:Name="PutName" Canvas.Top="70" Canvas.Left="130" HorizontalContentAlignment="Left" Width="200"
             Height="22" FontSize="16" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
 
+            <Label Content="Descrição (Opcional)" FontSize="16" Canvas.Top="112" Canvas.Left="97.5" Height="30" Width="155"/>
+
+            <TextBox x:Name="Description" Canvas.Top="159" Canvas.Left="20" Width="310" Height="174" 
+            TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+
             <Button x:Name="CreateNew" Content="Criar novo projeto" FontSize="16" Height="26"
-            Width="140" Canvas.Bottom="46" Canvas.Left="105" Style="{StaticResource BotaoCreate}"/>
+            Width="140" Canvas.Top="354" Canvas.Left="105" Style="{StaticResource BotaoCreate}"/>
         </Canvas>
     </Grid>
 </Window>
