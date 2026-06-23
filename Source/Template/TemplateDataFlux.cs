@@ -2,7 +2,7 @@ using System.IO;
 
 public class TemplateDataFlux
 {
-    public static void TemplateArchive(String name)
+    public static void TemplateArchive(string name, string description)
     {
         string mainWay = "C:/Users/angel";
 
@@ -14,8 +14,19 @@ public class TemplateDataFlux
         File.SetAttributes(fluxogramaFolder, File.GetAttributes(fluxogramaFolder) | FileAttributes.Hidden);
         File.SetAttributes(DataCenter, File.GetAttributes(DataCenter) | FileAttributes.Hidden);
 
-        string path = Path.Combine(DataCenter, name + ".txt");
+        string archiveName = name + " description.txt";
+        string path = Path.Combine(DataCenter, archiveName);
 
-        File.WriteAllText(path, "Teste de escrita");
+        if (Path.Exists(path))
+        {
+            Console.WriteLine("ERRO: Arquivo com esse nome já existente.");
+        }
+        else
+        {
+            string content = "Nome: " + name + "\n" + "Descrição: " + description; 
+    
+            File.WriteAllText(path, content);
+            Console.WriteLine("Criado");         
+        }
     }
 }
