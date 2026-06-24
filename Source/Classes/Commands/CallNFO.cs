@@ -8,9 +8,9 @@ public class CallNFO
         Application.Current.Dispatcher.Invoke(() =>
         {
             NewFileOptions secondWindow = new NewFileOptions();
-            secondWindow.ShowDialog();
-
             Console.WriteLine("Chegou ao Call");
+
+            secondWindow.ShowDialog();
         });
     }
 }

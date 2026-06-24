@@ -1,5 +1,5 @@
 ﻿Fluxogrammer
-
+1.0.0.0
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_O
 S:\Projetos\Fluxogrammer\App.xaml
 21216124437
 
-9-1671124950
+12614694601
 2061601768811
 Source\View\MainWindow.xaml;Source\View\NewFileOptions.xaml;
 
-False
+True
 

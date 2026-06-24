@@ -3,10 +3,8 @@ using Fluxogrammer.Source;
 
 public class CreateButtonsCommands
 {
-    public static bool Connect(Button command, TextBox name, TextBox description)
+    public static void Connect(Button command, TextBox name, TextBox description, Action close)
     {
-        bool checker = false;
-
         command.Click += (s, e) =>
         {
             string txtCamp = name.Text;
@@ -15,16 +13,12 @@ public class CreateButtonsCommands
             if (string.IsNullOrWhiteSpace(txtCamp))
             {
                 Console.WriteLine("Por Favor. Preencha todos os campos");
-                checker = false;
                 return;
             }
             else
             {
-                TemplateDataFlux.TemplateArchive(txtCamp, details);
-                checker = true;
+                TemplateDataFlux.TemplateArchive(txtCamp, details, close);
             }
         };
-
-        return checker;
     }
 }
