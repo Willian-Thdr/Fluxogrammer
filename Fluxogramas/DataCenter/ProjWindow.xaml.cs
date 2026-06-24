@@ -7,6 +7,8 @@ public partial class ProjWindow : Window
 {
     public ProjWindow()
     {
+        int x = 0;
+
         InitializeComponent();
 
         ProjectCanva.MouseRightButtonDown += (s, e) =>
@@ -18,6 +20,8 @@ public partial class ProjWindow : Window
 
             item1.Click += (s2, e2) =>
             {
+                x++;
+
                 CreateObject.Connect(ProjectCanva);
                 Console.WriteLine("Objeto criado");
             };
