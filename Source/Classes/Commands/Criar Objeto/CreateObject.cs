@@ -1,3 +1,4 @@
+using System.Drawing.Text;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,7 +10,7 @@ using Fluxogrammer.Fluxogramas;
 public class CreateObject
 {
     public static void Connect(Canvas canva)
-    {
+    {       
         Grid bloco = new Grid()
         {
             Name = "Objects",
@@ -37,5 +38,6 @@ public class CreateObject
         Canvas.SetLeft(bloco, mouse.X - 50);
 
         canva.Children.Add(bloco);
+        ObjectMove.Connect(bloco, canva);
     }
 }
