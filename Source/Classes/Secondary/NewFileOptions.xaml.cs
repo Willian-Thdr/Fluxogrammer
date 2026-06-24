@@ -6,10 +6,6 @@ public partial class NewFileOptions : Window
     public NewFileOptions()
     {
         InitializeComponent();
-
-        if (CreateButtonsCommands.Connect(CreateNew, PutName, Description))
-        {
-            Close();
-        }
+        CreateButtonsCommands.Connect(CreateNew, PutName, Description, Close);
     }
 }

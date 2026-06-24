@@ -9,16 +9,16 @@ public partial class MainWindow : Window
         InitializeComponent();
         Console.WriteLine("Carregou");
 
-        CreateBaseFlux();
         MenuButtonsActions.GetButtonNew(NewButton);
         MenuButtonsActions.GetButtonLoad(LoadButton);
     }
 
-    private void CreateBaseFlux()
+    public static void CreateBaseFlux(string? name)
     {
-        string mainWay = "C:/Users/angel";
+        string mainWay = AppDomain.CurrentDomain.BaseDirectory;
+        string projWay = Directory.GetParent(mainWay).Parent.Parent.Parent.FullName;
 
-        string fluxogramaFolder = Path.Combine(mainWay, "Fluxogramas");
+        string fluxogramaFolder = Path.Combine(projWay, "Fluxogramas");
         string BkndFluxFolder = Path.Combine(fluxogramaFolder, "BkndFlux");
 
         Directory.CreateDirectory(BkndFluxFolder);
@@ -26,7 +26,8 @@ public partial class MainWindow : Window
         File.SetAttributes(fluxogramaFolder, FileAttributes.Hidden);
         File.SetAttributes(BkndFluxFolder, FileAttributes.Hidden);
 
-        string path = Path.Combine(BkndFluxFolder, "fluxograma.xaml");
-        File.WriteAllText(path, xamlCodeTemplate.codeTemplate());
+        string path = Path.Combine(BkndFluxFolder, name + ".xaml");
+        
+        File.WriteAllText(path, xamlCodeTemplate.codeTemplate(name));
     }
 }
