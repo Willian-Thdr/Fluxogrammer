@@ -17,6 +17,7 @@ public class MenuButtonsActions
         component.Click += (s2, e2) =>
         {
             Console.WriteLine("Carregar");
+            CallFLO.Connect();
         };
     }
 }

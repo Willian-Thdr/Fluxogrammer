@@ -1,10 +1,10 @@
 using System.IO;
 using Fluxogrammer;
+using Fluxogrammer.Fluxogramas;
 using Fluxogrammer.Source;
 
 public class TemplateDataFlux
 {
-    public static string? globalName;
     public static void TemplateArchive(string name, string description, Action close)
     {
         string mainWay = AppDomain.CurrentDomain.BaseDirectory;
@@ -20,7 +20,6 @@ public class TemplateDataFlux
 
         string archiveName = name + " description.txt";
         string path = Path.Combine(DataCenter, archiveName);
-        string controllerArchive = Path.Combine(DataCenter, name + ".xaml.cs");
 
         if (Path.Exists(path))
         {
@@ -31,13 +30,11 @@ public class TemplateDataFlux
             string content = "Nome: " + name + "\n" + "Descrição: " + description; 
 
             File.WriteAllText(path, content);
-            File.WriteAllText(controllerArchive, TemplateFluxController.codeBase(name));
             Console.WriteLine("Criado");
             close.Invoke();
-
-            MainWindow.CreateBaseFlux(name);
+            ProjWindow project = new ProjWindow();
+            project.Title = name;
+            project.Show();
         }
-
-        globalName = name;
     }
 }
