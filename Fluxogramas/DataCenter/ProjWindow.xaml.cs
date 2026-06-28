@@ -22,7 +22,7 @@ public partial class ProjWindow : Window
             {
                 x++;
 
-                CreateObject.Connect(ProjectCanva);
+                CreateObject.Connect(ProjectCanva, x);
                 Console.WriteLine("Objeto criado");
             };
 

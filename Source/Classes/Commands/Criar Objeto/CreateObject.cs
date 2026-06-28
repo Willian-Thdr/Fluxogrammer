@@ -1,23 +1,17 @@
-using System.Drawing.Text;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
-using Fluxogrammer.Fluxogramas;
 
 public class CreateObject
 {
-    public static void Connect(Canvas canva)
+    public static void Connect(Canvas canva, int x)
     {       
         Grid bloco = new Grid()
         {
-            Name = "Objects",
-            Width = 100,
-            Height = 25,
-            VerticalAlignment = VerticalAlignment.Center,
-            HorizontalAlignment = HorizontalAlignment.Center
+            Name = "Object_" + x,
+            Width = 125,
+            Height = 25
         };
         NameScope.SetNameScope(canva, new NameScope());
         canva.RegisterName(bloco.Name, bloco);
@@ -30,14 +24,38 @@ public class CreateObject
             CornerRadius = new CornerRadius(18)
         };
 
+        TextBox txt = new TextBox()
+        {
+            HorizontalContentAlignment = HorizontalAlignment.Center,
+            VerticalContentAlignment = VerticalAlignment.Center,
+            Background = Brushes.Transparent,
+            BorderThickness = new Thickness(0),
+            IsReadOnly = true,
+            TextWrapping = TextWrapping.Wrap,
+            VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
+            Margin = new Thickness(5)
+        };
+
         bloco.Children.Add(borda);
+        bloco.Children.Add(txt);
 
         Point mouse = Mouse.GetPosition(canva);
 
         Canvas.SetTop(bloco, mouse.Y - 12.5);
         Canvas.SetLeft(bloco, mouse.X - 50);
 
+        ObjectMove.Connect(canva, bloco, txt);
+
         canva.Children.Add(bloco);
-        ObjectMove.Connect(bloco, canva);
+
+        txt.KeyDown += (s, e) =>
+        {
+            if (e.Key == Key.Enter)
+            {
+                txt.IsReadOnly = true;
+                Keyboard.ClearFocus();
+                e.Handled = true;
+            }
+        };
     }
 }

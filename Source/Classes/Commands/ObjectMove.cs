@@ -1,41 +1,89 @@
 using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 
 public class ObjectMove
 {
-    public static void Connect(Grid bloco, Canvas canva)
+    public static void Connect(Canvas canva, Grid bloco, TextBox txt)
     {
         bool press = false;
         Point offset = new();
 
-        bloco.MouseLeftButtonDown += (s, e) =>
-        {
-            press = true;
-
-            Point mouse = e.GetPosition(canva);
-
-            offset.X = mouse.X - Canvas.GetLeft(bloco);
-            offset.Y = mouse.Y - Canvas.GetTop(bloco);
-
-            bloco.CaptureMouse();
-        };
-
-        bloco.MouseMove += (s, e) =>
-        {
-            if (press)
+            bloco.PreviewMouseLeftButtonDown += (s, e) =>
             {
+                press = true;
+    
                 Point mouse = e.GetPosition(canva);
-        
-                Canvas.SetTop(bloco, mouse.Y - offset.Y);
-                Canvas.SetLeft(bloco, mouse.X - offset.X);
-           }            
-        };  
+    
+                offset.X = mouse.X - Canvas.GetLeft(bloco);
+                offset.Y = mouse.Y - Canvas.GetTop(bloco);
+    
+                bloco.CaptureMouse();
+            };
+    
+            bloco.MouseMove += (s, e) =>
+            {
+                if (press)
+                {
+                    Point mouse = e.GetPosition(canva);
+            
+                    Canvas.SetTop(bloco, mouse.Y - offset.Y);
+                    Canvas.SetLeft(bloco, mouse.X - offset.X);
+                }            
+            };  
+    
+            bloco.MouseLeftButtonUp += (s, e) => 
+            {
+                press = false;
+    
+                bloco.ReleaseMouseCapture();
+            };     
 
-        bloco.MouseLeftButtonUp += (s, e) => 
-        {
-            press = false;
+            bloco.PreviewMouseRightButtonDown += (s, e) =>
+            {
+                ContextMenu menu = new();
 
-            bloco.CaptureMouse();
-        };  
+                MenuItem rename = new MenuItem();
+                rename.Header = "Renomear";
+
+                MenuItem expandir = new MenuItem();
+                expandir.Header = "Expandir";
+
+                MenuItem recolher = new MenuItem();
+                recolher.Header = "Recolher";
+
+                rename.Click += (s2, e2) =>
+                {
+                    txt.IsReadOnly = false;
+                    txt.Focus();                   
+                };
+
+                expandir.Click += (s2, e2) =>
+                {
+                    bloco.Height = double.NaN;
+                };
+
+                recolher.Click += (s2, e2) =>
+                {
+                    bloco.Height = 25;
+                };
+
+                menu.Placement = PlacementMode.MousePoint;
+
+                menu.Items.Add(rename);
+
+                if (bloco.Height <= 25)
+                {
+                    menu.Items.Add(expandir);
+                    menu.Items.Remove(recolher);
+                }
+                else
+                {
+                    menu.Items.Add(recolher);
+                    menu.Items.Remove(expandir);
+                }
+
+                menu.IsOpen = true;
+            };
     }
 }
