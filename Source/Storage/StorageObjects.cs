@@ -4,8 +4,8 @@ using System.Windows.Controls;
 
 public class StorageObjects
 {
-    public static class Connect
-    {
-        public static List<Grid> objetos { get; set;} = new(); 
-    }
+    private static StorageObjects _instance = new();
+    public static StorageObjects Instance => _instance;
+
+    public List<Grid> objetos { get; set; } = new List<Grid>(); 
 }
