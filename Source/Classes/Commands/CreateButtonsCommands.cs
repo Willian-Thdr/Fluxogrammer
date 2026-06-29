@@ -10,15 +10,7 @@ public class CreateButtonsCommands
             string txtCamp = name.Text;
             string? details = description.Text;
 
-            if (string.IsNullOrWhiteSpace(txtCamp))
-            {
-                Console.WriteLine("Por Favor. Preencha todos os campos");
-                return;
-            }
-            else
-            {
-                TemplateDataFlux.TemplateArchive(txtCamp, details, close);
-            }
+            TemplateDataFlux.TemplateArchive(txtCamp, details, close);
         };
     }
 }

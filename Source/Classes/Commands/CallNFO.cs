@@ -8,8 +8,6 @@ public class CallNFO
         Application.Current.Dispatcher.Invoke(() =>
         {
             NewFileOptions secondWindow = new NewFileOptions();
-            Console.WriteLine("Chegou ao Call");
-
             secondWindow.ShowDialog();
         });
     }

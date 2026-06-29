@@ -68,7 +68,7 @@ namespace Fluxogrammer.Source {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Fluxogrammer;component/source/view/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Fluxogrammer;V1.0.0.0;component/source/view/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Source\View\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
