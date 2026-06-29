@@ -52,6 +52,9 @@ public class ObjectMove
                 MenuItem recolher = new MenuItem();
                 recolher.Header = "Recolher";
 
+                MenuItem del = new MenuItem();
+                del.Header = "Deletar";
+
                 rename.Click += (s2, e2) =>
                 {
                     txt.IsReadOnly = false;
@@ -68,6 +71,11 @@ public class ObjectMove
                     bloco.Height = 25;
                 };
 
+                del.Click += (s2, e2) =>
+                {
+                    canva.Children.Remove(bloco);
+                };
+
                 menu.Placement = PlacementMode.MousePoint;
 
                 menu.Items.Add(rename);
@@ -82,6 +90,8 @@ public class ObjectMove
                     menu.Items.Add(recolher);
                     menu.Items.Remove(expandir);
                 }
+
+                menu.Items.Add(del);
 
                 menu.IsOpen = true;
             };

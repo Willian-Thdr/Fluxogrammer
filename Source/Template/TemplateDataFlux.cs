@@ -5,7 +5,7 @@ using Fluxogrammer.Source;
 
 public class TemplateDataFlux
 {
-    public static void TemplateArchive(string name, string description, Action close)
+    public static void TemplateArchive(string? name, string? description, Action close)
     {
         string mainWay = AppDomain.CurrentDomain.BaseDirectory;
         string projWay = Directory.GetParent(mainWay).Parent.Parent.Parent.FullName;
@@ -23,14 +23,21 @@ public class TemplateDataFlux
 
         if (Path.Exists(path))
         {
-            Console.WriteLine("ERRO: Arquivo com esse nome já existente.");
+            WindowError error = new WindowError();
+            error.Connect("ERRO: Arquivo com esse nome já existente.");
+            error.ShowDialog();
+        } 
+        else if (string.IsNullOrEmpty(name))
+        {
+            WindowError error = new WindowError();
+            error.Connect("ERRO: Campo de nome está vazio. Por favor, preencha-o.");
+            error.ShowDialog();            
         }
         else
         {
             string content = "Nome: " + name + "\n" + "Descrição: " + description; 
 
             File.WriteAllText(path, content);
-            Console.WriteLine("Criado");
             close.Invoke();
             ProjWindow project = new ProjWindow();
             project.Title = name;
