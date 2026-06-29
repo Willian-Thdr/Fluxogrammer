@@ -1,33 +1,39 @@
 using System.IO;
-using Fluxogrammer;
-using Fluxogrammer.Fluxogramas;
 using Fluxogrammer.Source;
 
 public class TemplateDataFlux
 {
-    public static void TemplateArchive(string? name, string? description, Action close)
+    public static void TemplateArchive(string name, string? description, Action close)
     {
         string mainWay = AppDomain.CurrentDomain.BaseDirectory;
-        string projWay = Directory.GetParent(mainWay).Parent.Parent.Parent.FullName;
 
-        string fluxogramaFolder = Path.Combine(projWay, "Fluxogramas");
+        string fluxogramaFolder = Path.Combine(mainWay, "Fluxogramas");
         string DataCenter = Path.Combine(fluxogramaFolder, "DataCenter");
+        string projectNameFolder = Path.Combine(DataCenter, name);
 
-        Directory.CreateDirectory(DataCenter);
+        Directory.CreateDirectory(projectNameFolder);
 
         File.SetAttributes(fluxogramaFolder, File.GetAttributes(fluxogramaFolder) | FileAttributes.Hidden);
         File.SetAttributes(DataCenter, File.GetAttributes(DataCenter) | FileAttributes.Hidden);
+        File.SetAttributes(projectNameFolder, File.GetAttributes(projectNameFolder) | FileAttributes.Hidden);
 
-        string archiveName = name + " description.txt";
-        string path = Path.Combine(DataCenter, archiveName);
-
-        if (Path.Exists(path))
+        if (string.IsNullOrEmpty(name))
         {
             WindowError error = new WindowError();
             error.Connect("ERRO: Arquivo com esse nome já existente.");
             error.ShowDialog();
+            return;
         } 
-        else if (string.IsNullOrEmpty(name))
+    
+        foreach(char c in Path.GetInvalidFileNameChars())
+        {
+            name = name.Replace(c, '_');
+        }
+
+        string archiveName = name + " description.txt";
+        string path = Path.Combine(projectNameFolder, archiveName);
+        
+        if (Path.Exists(path))
         {
             WindowError error = new WindowError();
             error.Connect("ERRO: Campo de nome está vazio. Por favor, preencha-o.");
@@ -35,9 +41,18 @@ public class TemplateDataFlux
         }
         else
         {
-            string content = "Nome: " + name + "\n" + "Descrição: " + description; 
+            string l1 = "Nome: " + name + ";\n"; 
+            string l2 = "Descrição: " + description + ";\n";
+            string finalText;
 
-            File.WriteAllText(path, content);
+            if (string.IsNullOrEmpty(description))
+            {
+                l2 = "Descrição: " + " NaN" + ";\n";
+            }
+
+            finalText = l1 + l2;
+            File.WriteAllText(path, finalText);
+
             close.Invoke();
             ProjWindow project = new ProjWindow();
             project.Title = name;

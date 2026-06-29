@@ -1,5 +1,5 @@
 ﻿Fluxogrammer
-1.0.0.0
+
 
 exe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 S:\Projetos\Fluxogrammer\App.xaml
-4-246322281
+4-1686875742
 
-16-1271316945
+161501539192
 2061601768811
-Fluxogramas\BkndFlux\ProjWindow.xaml;Source\Notification\WindowError.xaml;Source\View\MainWindow.xaml;Source\View\NewFileOptions.xaml;
+Source\Notification\WindowError.xaml;Source\View\MainWindow.xaml;Source\View\NewFileOptions.xaml;Source\View\ProjWindow.xaml;
 
-True
+False
 
