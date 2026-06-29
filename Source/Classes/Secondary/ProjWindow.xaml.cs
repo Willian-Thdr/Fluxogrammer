@@ -31,27 +31,7 @@ public partial class ProjWindow : Window
 
             save.Click += (s2, e2) =>
             {
-                ProjetoInfo projetoInfo = new();
-
-                projetoInfo.Nome = Title;
-
-                foreach (Grid bloco in ProjectCanva.Children.OfType<Grid>())
-                {
-                    TextBox txt = (TextBox)bloco.Children[1];
-
-                    projetoInfo.objetos.Add(new Objeto()
-                    {
-                        Id = bloco.Name,
-                        content = txt.Text,
-                        X = Canvas.GetLeft(bloco),
-                        Y = Canvas.GetTop(bloco),
-                        Wdt = bloco.Width,
-                        Hegt = bloco.Height
-                    });
-                }
-
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fluxogramas", "DataCenter", Title, Title + ".flux");
-                FluxConverter.Save(path, projetoInfo);
+                SaveProj(ProjectCanva, Title);
             };
 
             menu.Placement = PlacementMode.MousePoint;
@@ -59,6 +39,11 @@ public partial class ProjWindow : Window
             menu.Items.Add(item1);
             menu.Items.Add(save);
             menu.IsOpen = true;         
+        };
+    
+        Closing += (s, e) =>
+        {
+            SaveProj(ProjectCanva, Title);
         };
     }
 
@@ -70,4 +55,29 @@ public partial class ProjWindow : Window
             CreateObject.CreateFromFile(ProjectCanva, obj);
         }
     }
+
+    private static void SaveProj(Canvas canva, string title)
+    {
+        ProjetoInfo projetoInfo = new();
+
+        projetoInfo.Nome = title;
+
+        foreach (Grid bloco in canva.Children.OfType<Grid>())
+        {
+            TextBox txt = (TextBox)bloco.Children[1];
+
+            projetoInfo.objetos.Add(new Objeto()
+            {
+                Id = bloco.Name,
+                content = txt.Text,
+                X = Canvas.GetLeft(bloco),
+                Y = Canvas.GetTop(bloco),
+                Wdt = bloco.Width,
+                Hegt = bloco.Height
+            });
+        }
+
+        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fluxogramas", "DataCenter", title, title + ".flux");
+        FluxConverter.Save(path, projetoInfo);
+    } 
 } 
