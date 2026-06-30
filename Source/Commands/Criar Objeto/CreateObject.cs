@@ -59,6 +59,7 @@ public class CreateObject
         public Grid Grid { get; }
         public TextBox TextBox { get; }
         public Border Border { get; }
+        public List<Connection> Connections { get; set; } = new();
 
         public BlocoVisual(Objeto obj)
         {

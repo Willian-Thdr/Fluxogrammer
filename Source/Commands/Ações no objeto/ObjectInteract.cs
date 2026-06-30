@@ -46,7 +46,7 @@ public class ObjectInteract
 
             item5.Click += (s2, e2) =>
             {
-                
+                GetPointObject.GetPointOrigem(bloco);
             }; 
 
             menu.Placement = PlacementMode.MousePoint;
