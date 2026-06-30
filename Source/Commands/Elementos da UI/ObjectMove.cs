@@ -1,5 +1,6 @@
 using System.Windows.Controls;
 using System.Windows;
+using static CreateObject;
 
 public class ObjectMove
 {
@@ -11,8 +12,8 @@ public class ObjectMove
 
         bloco.Grid.PreviewMouseLeftButtonDown += (s, e) =>
         {
-            FluxConnectionManager.EndConnect(canva, bloco);
             press = true;
+            GetPointObject.GetPointDestino(bloco, canva);
 
             Point mouse = e.GetPosition(canva);
 
@@ -27,9 +28,20 @@ public class ObjectMove
             if (press)
             {
                 Point mouse = e.GetPosition(canva);
+
+                double newX = mouse.X - offset.X;
+                double newY = mouse.Y - offset.Y;
         
                 Canvas.SetTop(bloco.Grid, mouse.Y - offset.Y);
                 Canvas.SetLeft(bloco.Grid, mouse.X - offset.X);
+
+                bloco.Dados.X = newX;
+                bloco.Dados.Y = newY;
+
+                foreach(Connection connection in bloco.Connections)
+                {
+                    connection.Atualizar();
+                }
             }            
         };  
 
