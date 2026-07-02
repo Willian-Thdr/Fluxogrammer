@@ -42,10 +42,22 @@ public class Fluxreader
             else if (linha.StartsWith("blc.-Hg7h:"))
             {
                 objeto.Hegt = double.Parse(linha.Substring(10));
+            } 
+            else if (linha.StartsWith("ln.-cnct_orgm:"))
+            {
+                projetoInfo.linhas.Add(new Linhas()
+                {
+                    OrigemId = linha.Substring(12).Trim()
+                });  
+            }
+            else if (linha.StartsWith("ln.-cnct_dstn:"))
+            {
+                projetoInfo.linhas[^1].DestinoId = linha.Substring(13).Trim(); 
             }
         }
 
         ProjWindow proj = new();
+        
         proj.Title = projetoInfo.Nome;
         proj.LoadProj(projetoInfo);
         proj.Show();

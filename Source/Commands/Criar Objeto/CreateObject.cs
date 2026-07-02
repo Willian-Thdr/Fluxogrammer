@@ -5,11 +5,12 @@ using System.Windows.Media;
 
 public class CreateObject
 {
-    public static void Connect(Canvas canva, int x)
+
+    public static void Connect(Canvas canva, int x, ProjetoInfo projetoInfo)
     {
         Point mouse = Mouse.GetPosition(canva);
 
-        Objeto obj = new Objeto()
+        Objeto objeto = new Objeto()
         {
             Id = $"Object_{x}",
             content = "",
@@ -18,16 +19,16 @@ public class CreateObject
             Wdt = 125,
             Hegt = 27
         };
-    
-        CriarBloco(canva, obj);
+
+        CriarBloco(canva, objeto, projetoInfo);
     }
     
-    public static void CreateFromFile(Canvas canva, Objeto obj)
+    public static BlocoVisual CreateFromFile(Canvas canva, Objeto obj, ProjetoInfo projetoInfo)
     {
-        CriarBloco(canva, obj);
+        return CriarBloco(canva, obj, projetoInfo);
     }
 
-    private static void CriarBloco(Canvas canva, Objeto obj)
+    private static BlocoVisual CriarBloco(Canvas canva, Objeto obj, ProjetoInfo projetoInfo)
     {
         BlocoVisual bloco = new(obj);
 
@@ -37,8 +38,8 @@ public class CreateObject
         Canvas.SetLeft(bloco.Grid, obj.X);
         Canvas.SetTop(bloco.Grid, obj.Y);
 
-        ObjectMove.Connect(canva, bloco);
-        ObjectInteract.Connect(canva, bloco);
+        ObjectMove.Connect(canva, bloco, projetoInfo);
+        ObjectInteract.Connect(canva, bloco, obj);
 
         canva.Children.Add(bloco.Grid);
 
@@ -51,6 +52,8 @@ public class CreateObject
                 e.Handled = true;
             }
         };
+
+        return bloco;
     }
 
     public class BlocoVisual

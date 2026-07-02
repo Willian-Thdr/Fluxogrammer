@@ -4,17 +4,16 @@ using static CreateObject;
 
 public class ObjectMove
 {
-    public static void Connect(Canvas canva, CreateObject.BlocoVisual bloco)
+    public static void Connect(Canvas canva, BlocoVisual bloco, ProjetoInfo projetoInfo)
     {
         bool press = false;
+        bool hold = false;
 
         Point offset = new();
 
         bloco.Grid.PreviewMouseLeftButtonDown += (s, e) =>
         {
             press = true;
-            GetPointObject.GetPointDestino(bloco, canva);
-
             Point mouse = e.GetPosition(canva);
 
             offset.X = mouse.X - Canvas.GetLeft(bloco.Grid);
@@ -50,6 +49,11 @@ public class ObjectMove
             press = false;
 
             bloco.Grid.ReleaseMouseCapture();
-        };     
+        };
+
+        bloco.Grid.MouseLeftButtonDown += (s, e) =>
+        {
+            GetPointObject.GetPointDestino(bloco, canva, projetoInfo);
+        };  
     }
 }

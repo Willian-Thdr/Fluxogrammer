@@ -7,8 +7,10 @@ public class Connection
 {
     public BlocoVisual Origem { get; }
     public BlocoVisual Destino { get; }
+    public static Point inicioPoint { get; set; }
+    public static Point destinoPoint { get; set; }
 
-    public Line Linha { get; }
+    public Line Linha { get; set; }
 
     public Connection(BlocoVisual origem, BlocoVisual destino)
     {
@@ -26,12 +28,12 @@ public class Connection
 
     public void Atualizar()
     {
-        Point inicio = GetPointObject.Calcular(Origem.Dados, Destino.Dados);
-        Point destino = GetPointObject.Calcular(Destino.Dados, Origem.Dados);
+        inicioPoint = GetPointObject.Calcular(Origem.Dados, Destino.Dados);
+        destinoPoint = GetPointObject.Calcular(Destino.Dados, Origem.Dados);
 
-        Linha.X1 = inicio.X;
-        Linha.Y1 = inicio.Y;
-        Linha.X2 = destino.X;
-        Linha.Y2 = destino.Y;
+        Linha.X1 = inicioPoint.X;
+        Linha.Y1 = inicioPoint.Y;
+        Linha.X2 = destinoPoint.X;
+        Linha.Y2 = destinoPoint.Y;
     }
 }

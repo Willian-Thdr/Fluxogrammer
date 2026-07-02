@@ -1,11 +1,15 @@
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using static CreateObject;
 
 namespace Fluxogrammer.Source;
 public partial class ProjWindow : Window 
 {
+    public static ProjetoInfo projetoInfo = new();
+
     public ProjWindow()
     {
         int x = 0;
@@ -26,7 +30,7 @@ public partial class ProjWindow : Window
             {
                 x++;
 
-                CreateObject.Connect(ProjectCanva, x);
+                Connect(ProjectCanva, x, projetoInfo);
             };
 
             save.Click += (s2, e2) =>
@@ -49,17 +53,37 @@ public partial class ProjWindow : Window
 
     public void LoadProj(ProjetoInfo proj)
     {
+        Dictionary<string, BlocoVisual> mapa = new();
 
         foreach(Objeto obj in proj.objetos)
         {
-            CreateObject.CreateFromFile(ProjectCanva, obj);
+            BlocoVisual bloco = CreateFromFile(ProjectCanva, obj, projetoInfo);
+            mapa[obj.Id] = bloco;
+        }
+
+        CalcularDeArquivo(projetoInfo, mapa, ProjectCanva);
+    }
+
+    public void CalcularDeArquivo(ProjetoInfo projetoInfo, Dictionary<string, BlocoVisual> mapa, Canvas canva)
+    {
+        foreach(Linhas linha in projetoInfo.linhas)
+        {
+            BlocoVisual origem = mapa[linha.OrigemId];
+            BlocoVisual destino = mapa[linha.DestinoId];
+
+            Connection connection = new Connection(origem, destino);
+
+            origem.Connections.Add(connection);
+            destino.Connections.Add(connection);
+
+            canva.Children.Add(connection.Linha);
         }
     }
 
     private static void SaveProj(Canvas canva, string title)
     {
-        ProjetoInfo projetoInfo = new();
-
+        string way = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fluxogramas", "DataCenter", title);
+        string path = Path.Combine(way, title + ".flux");
         projetoInfo.Nome = title;
 
         foreach (Grid bloco in canva.Children.OfType<Grid>())
@@ -73,11 +97,10 @@ public partial class ProjWindow : Window
                 X = Canvas.GetLeft(bloco),
                 Y = Canvas.GetTop(bloco),
                 Wdt = bloco.Width,
-                Hegt = bloco.Height
+                Hegt = bloco.ActualHeight
             });
         }
 
-        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fluxogramas", "DataCenter", title, title + ".flux");
         FluxConverter.Save(path, projetoInfo);
     } 
 } 

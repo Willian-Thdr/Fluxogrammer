@@ -1,27 +1,31 @@
-using System.Windows.Media;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Shapes;
 using static CreateObject;
 
 public class GetPointObject
 {
     public static BlocoVisual blocoOrigem;
-
+    public static Connection connection;
     public static void GetPointOrigem(BlocoVisual bloco)
     {
         blocoOrigem = bloco;
     }
 
-    public static void GetPointDestino(BlocoVisual blocoDestino, Canvas canva)
+    public static void GetPointDestino(BlocoVisual blocoDestino, Canvas canva, ProjetoInfo projetoInfo)
     {
         if (blocoOrigem == null)
             return;
 
-        Connection connection = new Connection(blocoOrigem, blocoDestino);
+        connection = new Connection(blocoOrigem, blocoDestino);
 
         blocoOrigem.Connections.Add(connection);
         blocoDestino.Connections.Add(connection);
+
+        projetoInfo.linhas.Add(new Linhas()
+        {
+            OrigemId = blocoOrigem.Dados.Id,
+            DestinoId = blocoDestino.Dados.Id
+        });
 
         canva.Children.Add(connection.Linha);
 
@@ -46,8 +50,11 @@ public class GetPointObject
 
         double t = Math.Min(tX, tY);
 
-        var line = new Point(centroOrigem.X + dx * t, centroOrigem.Y + dy * t);
-        
+        double point1 = centroOrigem.X + dx *t;
+        double point2 = centroOrigem.Y + dy *t;
+
+        var line = new Point(point1, point2);
+
         return line;
     }
 }
