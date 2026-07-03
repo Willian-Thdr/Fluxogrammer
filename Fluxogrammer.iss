@@ -4,7 +4,7 @@
 
 #define MyAppName "Fluxogrammer"
 #define MyAppVersion "0.1.1"
-#define MyAppPublisher "Willian.Thdr"
+#define MyAppPublisher "Willian-Thdr"
 #define MyAppURL "https://github.com/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"
 #define MyAppAssocName MyAppName + " File"
@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{79D27D91-99DE-49A8-89AC-A70B92205004}
+AppId={{C617B659-C473-4371-9BB9-E41F64A7BCA2}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -39,11 +39,12 @@ InfoAfterFile=S:\Projetos\Fluxogrammer\README.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\angel\Downloads
-OutputBaseFilename=FluxogrammerSetup
+OutputBaseFilename=SetupFluxogrammer
 SolidCompression=yes
-WizardStyle=modern slate
+WizardStyle=modern dynamic
 
 [Languages]
+Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Tasks]
