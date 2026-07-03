@@ -14,9 +14,6 @@ public class TemplateDataFlux
 
         Directory.CreateDirectory(projectNameFolder);
 
-        File.SetAttributes(fluxogramaFolder, File.GetAttributes(fluxogramaFolder) | FileAttributes.Hidden);
-        File.SetAttributes(DataCenter, File.GetAttributes(DataCenter) | FileAttributes.Hidden);
-
         if (string.IsNullOrEmpty(name))
         {
             WindowError error = new WindowError();
