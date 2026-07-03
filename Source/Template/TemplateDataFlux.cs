@@ -15,7 +15,6 @@ public class TemplateDataFlux
 
         File.SetAttributes(fluxogramaFolder, File.GetAttributes(fluxogramaFolder) | FileAttributes.Hidden);
         File.SetAttributes(DataCenter, File.GetAttributes(DataCenter) | FileAttributes.Hidden);
-        File.SetAttributes(projectNameFolder, File.GetAttributes(projectNameFolder) | FileAttributes.Hidden);
 
         if (string.IsNullOrEmpty(name))
         {
