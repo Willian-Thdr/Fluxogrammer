@@ -7,7 +7,7 @@ public class CallFLO
     {
         OpenFileDialog fileDialog = new();
 
-        string path = Path.Combine(@"C:\Users\angel", "Fluxogramas", "DataCenter");
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
         fileDialog.InitialDirectory = path;
         fileDialog.Filter = "Fluxogramas (*.flux)|*.flux|Todos os arquivos (*.*)|*.*";
