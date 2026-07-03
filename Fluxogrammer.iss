@@ -3,7 +3,7 @@
 ; Non-commercial use only
 
 #define MyAppName "Fluxogrammer"
-#define MyAppVersion "0.1.0"
+#define MyAppVersion "0.1.1"
 #define MyAppPublisher "Willian.Thdr"
 #define MyAppURL "https://github.com/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"
@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{B561B4AB-3863-434A-AEAF-A3A1EE03D9A3}
+AppId={{79D27D91-99DE-49A8-89AC-A70B92205004}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -35,10 +35,11 @@ ArchitecturesInstallIn64BitMode=x64compatible
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
 LicenseFile=S:\Projetos\Fluxogrammer\LICENSE
+InfoAfterFile=S:\Projetos\Fluxogrammer\README.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\angel\Downloads
-OutputBaseFilename=Fluxogrammer
+OutputBaseFilename=FluxogrammerSetup
 SolidCompression=yes
 WizardStyle=modern slate
 
@@ -49,7 +50,7 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "S:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "S:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
