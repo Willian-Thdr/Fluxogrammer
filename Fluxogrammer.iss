@@ -3,7 +3,7 @@
 ; Non-commercial use only
 
 #define MyAppName "Fluxogrammer"
-#define MyAppVersion "0.1-beta.2"
+#define MyAppVersion "0.1-beta.3"
 #define MyAppPublisher "Willian-Thdr"
 #define MyAppURL "https://github.com/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"
@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{83A975B6-49F1-4E75-98BE-7856481E4250}
+AppId={{1E72F1C2-4C07-480B-9A9A-9F3897FAC410}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -35,13 +35,14 @@ ArchitecturesInstallIn64BitMode=x64compatible
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
 LicenseFile=S:\Projetos\Fluxogrammer\LICENSE
+InfoBeforeFile=S:\Projetos\Fluxogrammer\CHANGELOG.md
 InfoAfterFile=S:\Projetos\Fluxogrammer\README.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputDir=S:\Projetos\Fluxogrammer
-OutputBaseFilename=Setup
+OutputBaseFilename=Fluxogrammer-v0.1-beta.3
 SolidCompression=yes
-WizardStyle=modern dynamic
+WizardStyle=modern dynamic polar
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
