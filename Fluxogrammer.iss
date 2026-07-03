@@ -3,9 +3,9 @@
 ; Non-commercial use only
 
 #define MyAppName "Fluxogrammer"
-#define MyAppVersion "0.1.1"
+#define MyAppVersion "0.1-beta.1"
 #define MyAppPublisher "Willian-Thdr"
-#define MyAppURL "https://github.com/Willian-Thdr"
+#define MyAppURL "https://www.example.com/"
 #define MyAppExeName "Fluxogrammer.exe"
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{C617B659-C473-4371-9BB9-E41F64A7BCA2}
+AppId={{BB0AF54D-BFDC-4042-9ADA-43999E76010D}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}

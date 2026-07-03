@@ -10,7 +10,7 @@ public class CallFLO
     {
         OpenFileDialog fileDialog = new();
 
-        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fluxogramas", "DataCenter");
+        string path = Path.Combine(@"C:\Users\angel\OneDrive\Documents", "Fluxogramas", "DataCenter");
 
         fileDialog.InitialDirectory = path;
         fileDialog.Filter = "Fluxogramas (*.flux)|*.flux|Todos os arquivos (*.*)|*.*";
