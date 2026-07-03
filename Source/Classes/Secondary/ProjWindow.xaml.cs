@@ -83,7 +83,9 @@ public partial class ProjWindow : Window
     private static void SaveProj(Canvas canva, string title)
     {
         string way = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-        string path = Path.Combine(way, title + ".flux");
+        string path2 = Path.Combine(way, @"Fluxogramas\DataCenter");
+        string path3 = Path.Combine(path2, title);
+        string path = Path.Combine(path3, title + ".flux");
         projetoInfo.Nome = title;
         projetoInfo.objetos.Clear();
 
