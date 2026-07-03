@@ -1,3 +1,4 @@
+using System.Data;
 using System.IO;
 using Fluxogrammer.Source;
 
@@ -19,7 +20,7 @@ public class TemplateDataFlux
         if (string.IsNullOrEmpty(name))
         {
             WindowError error = new WindowError();
-            error.Connect("ERRO: Arquivo com esse nome já existente.");
+            error.Connect("ERRO: Campo de nome está vazio. Por favor, preencha-o.");
             error.ShowDialog();
             return;
         } 
@@ -31,17 +32,28 @@ public class TemplateDataFlux
 
         string archiveName = name + " description.txt";
         string path = Path.Combine(projectNameFolder, archiveName);
-        
+        int hora = DateTime.Now.Hour;
+        int minuto = DateTime.Now.Minute;
+        int dia = DateTime.Now.Day;
+        int mes = DateTime.Now.Month;
+        int ano = DateTime.Now.Year;
+
+        string horario = "Horário: " + hora + ":" + minuto;
+        string calendario = "Data: " + dia + "/" + mes + "/" + ano;
+
         if (Path.Exists(path))
         {
             WindowError error = new WindowError();
-            error.Connect("ERRO: Campo de nome está vazio. Por favor, preencha-o.");
+            error.Connect("ERRO: Arquivo com esse nome já existente.");
             error.ShowDialog();            
         }
         else
         {
             string l1 = "Nome: " + name + ";\n"; 
             string l2 = "Descrição: " + description + ";\n";
+            string l3 = horario + ";\n";
+            string l4 = calendario + ";\n";
+
             string finalText;
 
             if (string.IsNullOrEmpty(description))
@@ -49,7 +61,7 @@ public class TemplateDataFlux
                 l2 = "Descrição: " + " NaN" + ";\n";
             }
 
-            finalText = l1 + l2;
+            finalText = l1 + l2 + l3 + l4;
             File.WriteAllText(path, finalText);
 
             close.Invoke();
