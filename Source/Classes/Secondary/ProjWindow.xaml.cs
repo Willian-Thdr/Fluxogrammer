@@ -85,6 +85,7 @@ public partial class ProjWindow : Window
         string way = Path.Combine(@"C:\Users\angel", "Fluxogramas", "DataCenter", title);
         string path = Path.Combine(way, title + ".flux");
         projetoInfo.Nome = title;
+        projetoInfo.objetos.Clear();
 
         foreach (Grid bloco in canva.Children.OfType<Grid>())
         {
