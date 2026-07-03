@@ -5,7 +5,7 @@ public class TemplateDataFlux
 {
     public static void TemplateArchive(string name, string? description, Action close)
     {
-        string mainWay = @"C:\Users\angel\OneDrive\Documents";
+        string mainWay = @"C:\Users\angel";
 
         string fluxogramaFolder = Path.Combine(mainWay, "Fluxogramas");
         string DataCenter = Path.Combine(fluxogramaFolder, "DataCenter");

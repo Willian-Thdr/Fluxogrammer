@@ -1,7 +1,4 @@
-using System.Diagnostics;
 using System.IO;
-using System.Windows;
-using Fluxogrammer.Source;
 using Microsoft.Win32;
 
 public class CallFLO
@@ -10,7 +7,7 @@ public class CallFLO
     {
         OpenFileDialog fileDialog = new();
 
-        string path = Path.Combine(@"C:\Users\angel\OneDrive\Documents", "Fluxogramas", "DataCenter");
+        string path = Path.Combine(@"C:\Users\angel", "Fluxogramas", "DataCenter");
 
         fileDialog.InitialDirectory = path;
         fileDialog.Filter = "Fluxogramas (*.flux)|*.flux|Todos os arquivos (*.*)|*.*";

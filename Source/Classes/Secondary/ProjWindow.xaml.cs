@@ -82,7 +82,7 @@ public partial class ProjWindow : Window
 
     private static void SaveProj(Canvas canva, string title)
     {
-        string way = Path.Combine(@"C:\Users\angel\OneDrive\Documents", "Fluxogramas", "DataCenter", title);
+        string way = Path.Combine(@"C:\Users\angel", "Fluxogramas", "DataCenter", title);
         string path = Path.Combine(way, title + ".flux");
         projetoInfo.Nome = title;
 
