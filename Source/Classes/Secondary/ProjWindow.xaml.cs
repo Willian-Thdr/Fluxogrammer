@@ -51,10 +51,11 @@ public partial class ProjWindow : Window
             timer.Stop();
         };
     
-        timer.Interval = TimeSpan.FromSeconds(5);
+        timer.Interval = TimeSpan.FromMinutes(5);
         timer.Tick += (s, e) =>
         {
             SaveBackup(ProjectCanva, Title);
+            SaveProj(ProjectCanva, Title);
         };
         timer.Start();
     }
