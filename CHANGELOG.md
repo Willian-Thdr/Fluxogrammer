@@ -1,12 +1,11 @@
-# Fluxograma v0.1-beta.5
+# Fluxograma v0.1-beta.6
 
 ## Release Note
 
 ### Changes
 
-- A backup file is now created. If the program stops working during execution, 
-a copy of the project will be stored in a safe location.
+- The file will be automatically saved in the project folder.
 
 ### Resolved Issues
 
-- Line point update when the object is expanded or collected.
+- Autosave will occur every 5 minutes.

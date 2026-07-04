@@ -2,8 +2,8 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 ; Non-commercial use only
 
-#define MyAppName "Fluxogrammer-0.1-beta.5"
-#define MyAppVersion "0.1-beta.5"
+#define MyAppName "Fluxogrammer-v0.1-beta.6"
+#define MyAppVersion "0.1-beta.6"
 #define MyAppPublisher "Willian-Thdr"
 #define MyAppURL "https://github.com/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"
@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{0E4E537E-25B8-4DA1-B821-E3ABDCC17D30}
+AppId={{76727B6E-5E01-45AB-AA69-C77863EA8442}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
