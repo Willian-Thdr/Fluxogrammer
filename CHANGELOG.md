@@ -1,12 +1,12 @@
-# Fluxogrammer v0.1-beta.5
+# Fluxograma v0.1-beta.5
 
-## Nota da versão
+## Release Note
 
-### Mudanças
+### Changes
 
-- Agora é criado um arquivo de Backup. Caso o programe pare de funcionar durante a execução, 
-haverá uma cópia do projeto armazenada em um lugar seguro.
+- A backup file is now created. If the program stops working during execution, 
+a copy of the project will be stored in a safe location.
 
-### Problemas resolvidos
+### Resolved Issues
 
-- Atualização do ponto da linha caso o objeto seja expandido ou seja encolhido.
+- Line point update when the object is expanded or collected.
