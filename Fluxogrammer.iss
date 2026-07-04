@@ -4,7 +4,11 @@
 
 #define MyAppName "Fluxogrammer-v0.1-beta.4"
 #define MyAppVersion "0.1-beta.4"
+<<<<<<< HEAD
 #define MyAppPublisher "Willian-Thdr"
+=======
+#define MyAppPublisher "Williwn-Thdr"
+>>>>>>> 53eb403850c968b44b56f493fcc3bad3bce8d732
 #define MyAppURL "https://github.com/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"
 #define MyAppAssocName MyAppName + " File"
@@ -14,7 +18,11 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
+<<<<<<< HEAD
 AppId={{C75EF01A-C0B1-4F35-8559-8C179D95685C}
+=======
+AppId={{3347AD5E-A174-4E6D-8363-8917A73F3486}
+>>>>>>> 53eb403850c968b44b56f493fcc3bad3bce8d732
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -22,7 +30,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\{#MyAppName}
+DefaultDirName={autopf}\Fluxogrammer
 UninstallDisplayIcon={app}\{#MyAppExeName}
 ; "ArchitecturesAllowed=x64compatible" specifies that Setup cannot run
 ; on anything but x64 and Windows 11 on Arm.
@@ -40,7 +48,11 @@ InfoAfterFile=S:\Projetos\Fluxogrammer\README.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputDir=S:\Projetos\Fluxogrammer
+<<<<<<< HEAD
 OutputBaseFilename=setup
+=======
+OutputBaseFilename=Fluxogrammer
+>>>>>>> 53eb403850c968b44b56f493fcc3bad3bce8d732
 SolidCompression=yes
 WizardStyle=modern dynamic polar
 
