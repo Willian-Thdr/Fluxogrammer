@@ -6,6 +6,7 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
+        Check();
         InitializeComponent();
 
         MenuButtonsActions.GetButtonNew(NewButton);
