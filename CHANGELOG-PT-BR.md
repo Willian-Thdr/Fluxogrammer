@@ -1,12 +1,11 @@
-# Fluxogrammer v0.1-beta.5
+# Fluxogrammer v0.1-beta.6
 
 ## Nota da versão
 
 ### Mudanças
 
-- Agora é criado um arquivo de Backup. Caso o programe pare de funcionar durante a execução, 
-haverá uma cópia do projeto armazenada em um lugar seguro.
+- Arquivo do projeto será salvo automáticamente na pasta do projeto.
 
 ### Problemas resolvidos
 
-- Atualização do ponto da linha caso o objeto seja expandido ou seja encolhido.
+- Salvamento automático será executado a cada 5 minutos ao invés de 5 segundos.
