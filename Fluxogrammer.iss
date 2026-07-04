@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{F7453AD6-2C57-4C9C-BB98-05519711BB5E}
+AppId={{C75EF01A-C0B1-4F35-8559-8C179D95685C}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -40,7 +40,7 @@ InfoAfterFile=S:\Projetos\Fluxogrammer\README.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputDir=S:\Projetos\Fluxogrammer
-OutputBaseFilename=Setup
+OutputBaseFilename=setup
 SolidCompression=yes
 WizardStyle=modern dynamic polar
 
