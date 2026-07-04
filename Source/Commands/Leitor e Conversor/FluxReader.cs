@@ -25,7 +25,7 @@ public class Fluxreader
             }
             else if (linha.StartsWith("blc.-TX7:"))
             {
-                objeto.content = linha.Substring(9);
+                objeto.content = linha.Substring(10);
             }
             else if (linha.StartsWith("blc.-X:"))
             {

@@ -1,11 +1,12 @@
-# Fluxogrammer v0.1-beta.4
+# Fluxogrammer v0.1-beta.5
 
 ## Nota da versão
 
 ### Mudanças
 
-- Nenhuma grande mudança feita.
+- Agora é criado um arquivo de Backup. Caso o programe pare de funcionar durante a execução, 
+haverá uma cópia do projeto armazenada em um lugar seguro.
 
 ### Problemas resolvidos
 
-- Endereço do local do Save dos arquivos.
+- Atualização do ponto da linha caso o objeto seja expandido ou seja encolhido.

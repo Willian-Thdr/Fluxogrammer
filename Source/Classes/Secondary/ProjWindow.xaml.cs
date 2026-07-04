@@ -1,8 +1,8 @@
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Threading;
 using static CreateObject;
 
 namespace Fluxogrammer.Source;
@@ -13,7 +13,7 @@ public partial class ProjWindow : Window
     public ProjWindow()
     {
         int x = 0;
-
+        DispatcherTimer timer = new DispatcherTimer();
         InitializeComponent();
 
         ProjectCanva.MouseRightButtonDown += (s, e) =>
@@ -48,7 +48,15 @@ public partial class ProjWindow : Window
         Closing += (s, e) =>
         {
             SaveProj(ProjectCanva, Title);
+            timer.Stop();
         };
+    
+        timer.Interval = TimeSpan.FromSeconds(5);
+        timer.Tick += (s, e) =>
+        {
+            SaveBackup(ProjectCanva, Title);
+        };
+        timer.Start();
     }
 
     public void LoadProj(ProjetoInfo proj)
@@ -85,7 +93,46 @@ public partial class ProjWindow : Window
         string way = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
         string path2 = Path.Combine(way, @"Fluxogramas\DataCenter");
         string path3 = Path.Combine(path2, title);
+        Directory.CreateDirectory(path3);
         string path = Path.Combine(path3, title + ".flux");
+        projetoInfo.Nome = title;
+        projetoInfo.objetos.Clear();
+
+        foreach (Grid bloco in canva.Children.OfType<Grid>())
+        {
+            TextBox txt = (TextBox)bloco.Children[1];
+
+            projetoInfo.objetos.Add(new Objeto()
+            {
+                Id = bloco.Name,
+                content = txt.Text,
+                X = Canvas.GetLeft(bloco),
+                Y = Canvas.GetTop(bloco),
+                Wdt = bloco.Width,
+                Hegt = bloco.ActualHeight
+            });
+        }
+
+        FluxConverter.Save(path, projetoInfo);
+    } 
+
+    private static void SaveBackup(Canvas canva, string title)
+    {
+        string way = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+        string path2 = Path.Combine(way, @"Fluxogramas\Backup");
+        string path3 = Path.Combine(path2, title);
+
+        Directory.CreateDirectory(path3);
+        File.SetAttributes(path3, File.GetAttributes(path3) | FileAttributes.Hidden);
+
+        int hora = DateTime.Now.Hour;
+        int min = DateTime.Now.Minute;
+        int dia = DateTime.Now.Day;
+        int mes = DateTime.Now.Month;
+
+        string fileName = title + "-" + dia + "-" + mes + "-" + hora + "hr" + min + ".flux";
+
+        string path = Path.Combine(path3, fileName);
         projetoInfo.Nome = title;
         projetoInfo.objetos.Clear();
 

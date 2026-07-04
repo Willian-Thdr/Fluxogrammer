@@ -10,10 +10,15 @@ public class TemplateDataFlux
 
         string fluxogramaFolder = Path.Combine(mainWay, "Fluxogramas");
         string DataCenter = Path.Combine(fluxogramaFolder, "DataCenter");
+
+        string Backup = Path.Combine(fluxogramaFolder, "Backup");
         string projectNameFolder = Path.Combine(DataCenter, name);
 
         Directory.CreateDirectory(projectNameFolder);
+        Directory.CreateDirectory(Backup);
 
+        File.SetAttributes(Backup, File.GetAttributes(Backup) | FileAttributes.Hidden);
+        
         if (string.IsNullOrEmpty(name))
         {
             WindowError error = new WindowError();

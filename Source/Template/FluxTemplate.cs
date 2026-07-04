@@ -1,5 +1,3 @@
-using System.IO;
-
 public class FluxTemplate
 {
     public static string TemplateBlocos(Objeto obj)

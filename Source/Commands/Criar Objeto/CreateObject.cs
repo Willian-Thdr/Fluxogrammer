@@ -5,7 +5,6 @@ using System.Windows.Media;
 
 public class CreateObject
 {
-
     public static void Connect(Canvas canva, int x, ProjetoInfo projetoInfo)
     {
         Point mouse = Mouse.GetPosition(canva);

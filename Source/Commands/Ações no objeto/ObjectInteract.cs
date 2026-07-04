@@ -24,15 +24,22 @@ public class ObjectInteract
             MenuItem item5 = new MenuItem();
             item5.Header = "Criar progresso"; 
 
-            item1.Click += (s2, e2) => { 
+            item1.Click += (s2, e2) => 
+            { 
                 bloco.TextBox.IsReadOnly = false; 
                 bloco.TextBox.Focus(); 
             }; 
 
             Expandir.Click += (s2, e2) => 
             {
-                obj.Hegt = double.NaN;
                 bloco.Grid.Height= double.NaN;
+                bloco.Grid.UpdateLayout();
+                obj.Hegt = bloco.Grid.ActualHeight;
+
+                foreach(Connection connection in bloco.Connections)
+                {
+                    connection.Atualizar();
+                }
             }; 
 
             Recolher.Click += (s2, e2) => 
