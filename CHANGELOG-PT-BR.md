@@ -4,7 +4,8 @@
 
 ### Mudanças
 
-- Arquivo do projeto será salvo automáticamente na pasta do projeto.
+- Arquivo do projeto será salvo automáticamente na pasta do projeto;
+- O programa procurará por versões mais recentes e executará a atualização.
 
 ### Problemas resolvidos
 

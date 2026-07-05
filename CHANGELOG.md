@@ -4,7 +4,8 @@
 
 ### Changes
 
-- The file will be automatically saved in the project folder.
+- The file will be automatically saved in the project folder;
+- The program checks the latest version and automatically updates the Software.
 
 ### Resolved Issues
 

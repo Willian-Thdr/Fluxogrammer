@@ -15,7 +15,7 @@ public partial class MainWindow : Window
 
     public async void Check()
     {
-        string actualVersion = "0.1-beta.5";
+        string actualVersion = "0.1-beta.6";
         string? lastVersion = await VersionChecker.GetLastVersion();
     
         if (lastVersion != actualVersion)
