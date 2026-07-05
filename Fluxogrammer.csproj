@@ -5,7 +5,7 @@
     <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>0.1-beta.6</Version> 
+    <Version>v0.1-beta.6</Version> 
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 

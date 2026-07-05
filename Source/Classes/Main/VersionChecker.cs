@@ -9,7 +9,7 @@ public class VersionChecker
     {
         client.DefaultRequestHeaders.UserAgent.ParseAdd("Fluxogrammer-App");
 
-        string url = "https://github.com/Willian-Thdr/Fluxogrammer/releases/latest";
+        string url = "https://api.github.com/repos/Willian-Thdr/Fluxogrammer/releases/latest";
 
         try
         {

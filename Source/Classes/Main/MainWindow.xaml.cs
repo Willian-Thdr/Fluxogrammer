@@ -6,11 +6,12 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        Check();
         InitializeComponent();
 
         MenuButtonsActions.GetButtonNew(NewButton);
         MenuButtonsActions.GetButtonLoad(LoadButton);
+
+        Check();
     }
 
     public async void Check()
@@ -18,7 +19,7 @@ public partial class MainWindow : Window
         string actualVersion = "v0.1-beta.6";
         string? lastVersion = await VersionChecker.GetLastVersion();
     
-        if (lastVersion != actualVersion)
+        if (lastVersion != actualVersion && lastVersion != null)
         {
             MessageBoxResult resultado = MessageBox.Show(
                 $"Uma nova versão está disponível: {lastVersion}\nDeseja baixar agora?",
