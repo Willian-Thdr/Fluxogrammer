@@ -12,7 +12,7 @@ public class CreateObject
         Objeto objeto = new Objeto()
         {
             Id = $"Object_{x}",
-            content = "",
+            content = $"Novo objeto {x}",
             X = mouse.X - 50,
             Y = mouse.Y - 12.5,
             Wdt = 125,
