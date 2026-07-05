@@ -38,4 +38,9 @@ public partial class MainWindow : Window
             }
         }
     }
+
+    public void ChangeBackground(object color)
+    {
+        this.Background = (System.Windows.Media.Brush)color;
+    }
 }
