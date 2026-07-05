@@ -9,4 +9,5 @@
 
 ### Resolved Issues
 
-- Autosave will occur every 5 minutes.
+- Autosave will occur every 5 minutes;
+- Program crash when loading a project.

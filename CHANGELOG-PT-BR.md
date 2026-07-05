@@ -9,4 +9,5 @@
 
 ### Problemas resolvidos
 
-- Salvamento automático será executado a cada 5 minutos ao invés de 5 segundos.
+- Salvamento automático será executado a cada 5 minutos ao invés de 5 segundos;
+- Crash de programa ao carregar projeto já criado antes.
