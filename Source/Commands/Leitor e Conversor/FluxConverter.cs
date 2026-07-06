@@ -14,7 +14,6 @@ public class FluxConverter
             foreach (Objeto obj in projeto.objetos)
             {
                 x++;
-                Console.WriteLine("Bloco salvo");
 
                 writer.WriteLine(FluxTemplate.TemplateBlocos(obj));
 

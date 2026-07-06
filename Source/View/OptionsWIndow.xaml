@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fluxogrammer.Source"
         mc:Ignorable="d"
-        Background="#2b2b2b"
+        Style="{DynamicResource WindowStyle}"
         Title="Opções" Height="450" Width="600">
+
         <Window.Resources>
             <local:BindingDivide x:Key="BindingDivide"/>
 
             <Style x:Key="ToggleStyle" TargetType="ToggleButton">
+                <Setter Property="BorderBrush" Value="{DynamicResource Borders}"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="ToggleButton">
                             <Border x:Name="border"
-                                    Background="#20FFFFFF"
-                                    BorderBrush="Black"
+                                    Background="Transparent"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="1"
                                     CornerRadius="15">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>                            
@@ -25,6 +27,24 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <!-- <Style x:Key="ButtonTheme" TargetType="Button">
+                <Setter Property="Background" Value="{DynamicResource ButtonsThemeBackground}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource ButtonsThemeBorders}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ButtonsThemeForeground}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style> -->
         </Window.Resources>
 
         <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -40,7 +60,7 @@
                 Converter={StaticResource BindingDivide}, ConverterParameter=2}" 
 
                 Y2="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Window}}" 
-                Stroke="Black" StrokeThickness="2"/>
+                StrokeThickness="2"/>
 
                 <Label Canvas.Left="20" Canvas.Top="170" Content="Tema do programa:"
                 FontSize="14pt" Width="175"/>
@@ -57,11 +77,14 @@
                     StaysOpen="False"
                     AllowsTransparency="True">
 
-                    <Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="4">
+                    <Border Style="{DynamicResource PopupStyle}" BorderThickness="1" Padding="4">
                         <StackPanel>
-                            <Button Content="Escuro" Tag="#2b2b2b" Padding="8,4" Click="ThemeButtonClick"/>
-                            <Button Content="Claro" Tag="#ffffff" Padding="8,4" Click="ThemeButtonClick"/>
-                            <Button Content="Padrão" Tag="NaN" Padding="8,4" Click="ThemeButtonClick"/>
+                            <Button Content="Padrão" Padding="8,4" Click="ThemeButtonClick" Style="{DynamicResource ButtonThemeStyle}"
+                            Margin="0,2,0,0"/>
+                            <Button Content="Claro" Padding="8,4" Click="ThemeButtonClick" Style="{DynamicResource ButtonThemeStyle}"
+                            Margin="0,2,0,2"/>
+                            <Button Content="Escuro" Padding="8,4" Click="ThemeButtonClick" Style="{DynamicResource ButtonThemeStyle}"
+                            Margin="0,0,0,2"/>
                         </StackPanel>
                     </Border>
                 </Popup>

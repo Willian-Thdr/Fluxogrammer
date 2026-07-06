@@ -12,6 +12,14 @@ public partial class MainWindow : Window
         MenuButtonsActions.GetButtonLoad(LoadButton);
 
         Check();
+
+        ColorFont.Change("Padrão");
+
+        OpenConfig.Click += (s, e) =>
+        {
+            OptionsWindow options = new();
+            options.Show();
+        };
     }
 
     public async void Check()

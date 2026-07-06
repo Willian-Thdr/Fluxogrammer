@@ -2,8 +2,50 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Fluxogrammer"
-             StartupUri="Source/View/OptionsWindow.xaml">
+             StartupUri="Source/View/MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="WindowStyle" TargetType="Window">
+            <Setter Property="Background" Value="{DynamicResource WindowBackground}"/>
+        </Style>
+
+        <Style TargetType="Line">
+            <Setter Property="Stroke" Value="{DynamicResource LineColor}"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="{DynamicResource TextBrushes}"/>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BorderBrush" Value="{DynamicResource Borders}"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonsBackground}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ButtonsForeground}"/>
+        </Style>
+
+        <Style x:Key="ButtonThemeStyle" TargetType="Button">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonsThemeBorders}"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonsThemeBackground}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ButtonsThemeForeground}"/>
+        </Style>
+
+        <Style x:Key="ToggleStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="{DynamicResource BackgroundText}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Borders}"/>
+        </Style>
+
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxBrushes}"/>
+            <Setter Property="Background" Value="{DynamicResource BackgroundText}"/>
+        </Style>
+
+        <Style x:Key="BorderStyles" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource Borders}"/>
+            <Setter Property="Background" Value="{DynamicResource BackgroundText}"/>
+        </Style>
+
+        <Style x:Key="PopupStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource Borders}"/>
+            <Setter Property="Background" Value="{DynamicResource BackgroundPopup}"/>
+        </Style>
     </Application.Resources>
 </Application>

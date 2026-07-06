@@ -76,18 +76,17 @@ public class CreateObject
     
             Border = new Border()
             {
-                BorderBrush = Brushes.Black,
+                Style = (Style)Application.Current.FindResource("BorderStyles"),
                 BorderThickness = new Thickness(2),
-                Background = Brushes.Transparent,
                 CornerRadius = new CornerRadius(18)
             };
     
             TextBox = new TextBox()
             {
+                Style = (Style)Application.Current.FindResource("TextBoxStyle"),
                 Text = obj.content,
                 HorizontalContentAlignment = HorizontalAlignment.Center,
                 VerticalContentAlignment = VerticalAlignment.Center,
-                Background = Brushes.Transparent,
                 BorderThickness = new Thickness(0),
                 IsReadOnly = true,
                 TextWrapping = TextWrapping.Wrap,

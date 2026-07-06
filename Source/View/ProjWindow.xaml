@@ -6,14 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fluxogrammer"
         mc:Ignorable="d"
+        Style="{DynamicResource WindowStyle}"
         Title="projWindow" Height="450" Width="800">
-
-        <Window.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#5B1094" Offset="0"/>
-                <GradientStop Color="#708AEF" Offset="1"/>
-            </LinearGradientBrush>
-        </Window.Background>
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
         <Canvas x:Name="ProjectCanva" Background="Transparent">

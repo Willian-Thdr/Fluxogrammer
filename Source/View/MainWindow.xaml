@@ -5,19 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fluxogrammer"
         mc:Ignorable="d"
+        Style="{DynamicResource WindowStyle}"
         Title="MainWindow" Height="450" Width="600">
-
-        <Window.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#5b1094" Offset="0"/>
-                <GradientStop Color="#708aef" Offset="1"/>
-            </LinearGradientBrush>
-        </Window.Background>
-
     <Window.Resources>
         <Style x:Key="BotaoMenu" TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonsBackground}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Borders}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ButtonsForeground}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Template">
@@ -37,17 +31,21 @@
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
         <Canvas>
-            <Label FontSize="20" Height="36" HorizontalContentAlignment="Center" VerticalAlignment="Center"
+            <Label FontSize="24pt" Height="44" HorizontalContentAlignment="Center" VerticalAlignment="Center"
             Canvas.Left="0" Canvas.Top="20" Content="Fluxogrammer Menu" Canvas.Right="0" 
             Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}"/>
 
             <Button Content="Novo Fluxograma" Height="36" HorizontalAlignment="Center" 
-            VerticalAlignment="Center" Canvas.Left="100" Canvas.Top="74" 
+            VerticalAlignment="Center" Canvas.Left="100" Canvas.Top="84" 
             Style="{StaticResource BotaoMenu}" Padding="10,5" x:Name="NewButton"/>
 
             <Button Content="Carregar Fluxograma" Height="36" HorizontalAlignment="Center" 
-            VerticalAlignment="Center" Canvas.Right="100" Canvas.Top="74" 
+            VerticalAlignment="Center" Canvas.Right="100" Canvas.Top="84" 
             Style="{StaticResource BotaoMenu}" Padding="10,5" x:Name="LoadButton"/>
+
+            <Button Content="&#xE713;" FontFamily="Segoe MDL2 Assets" 
+            Padding="5" Canvas.Left="0" Canvas.Top="0" FontSize="16pt"
+            x:Name="OpenConfig" Style="{StaticResource BotaoMenu}"/>
         </Canvas>
     </Grid>
 </Window>
