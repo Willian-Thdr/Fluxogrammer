@@ -17,29 +17,29 @@ public class Fluxreader
             {
                 projetoInfo.Nome = linha.Replace("ProjectName:", "").Replace("--(", "").Trim();
             } 
-            else if (linha.StartsWith("blc.-ID:"))
+            else if (linha.StartsWith("blc.-id:"))
             {
                 objeto = new Objeto();
                 objeto.Id = linha.Substring(8).Trim();    
                 projetoInfo.objetos.Add(objeto);
             }
-            else if (linha.StartsWith("blc.-TX7:"))
+            else if (linha.StartsWith("blc.-txt:"))
             {
                 objeto.content = linha.Substring(10);
             }
-            else if (linha.StartsWith("blc.-X:"))
+            else if (linha.StartsWith("blc.-x:"))
             {
                 objeto.X = double.Parse(linha.Substring(7));
             }
-            else if (linha.StartsWith("blc.-Y:"))
+            else if (linha.StartsWith("blc.-y:"))
             {
                 objeto.Y = double.Parse(linha.Substring(7));
             }
-            else if (linha.StartsWith("blc.-Wd7:"))
+            else if (linha.StartsWith("blc.-wdt:"))
             {
                 objeto.Wdt = double.Parse(linha.Substring(9));
             }
-            else if (linha.StartsWith("blc.-Hg7h:"))
+            else if (linha.StartsWith("blc.-hgth:"))
             {
                 objeto.Hegt = double.Parse(linha.Substring(10));
             } 

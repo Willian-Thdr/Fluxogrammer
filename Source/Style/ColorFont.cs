@@ -1,10 +1,13 @@
+using System.IO;
 using System.Windows;
+using Microsoft.Win32;
 
 public class ColorFont
 {
     private static ResourceDictionary? _dicAtual;
     public static void Change(string? tema)
     {
+
         string CaminhoTema = tema switch
         {
             "Padrão" => "Source/Style/Default.xaml",
@@ -23,5 +26,31 @@ public class ColorFont
 
         Application.Current.Resources.MergedDictionaries.Add(dict);
         _dicAtual = dict;
+
+        SaveTheme(tema);
+    }
+
+    private static void SaveTheme(string tema)
+    {
+        string way = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        string fileName = "config.fluxcfg";
+        string configFolder = Path.Combine(way, "Fluxogramas");
+        string finalWay = Path.Combine(configFolder, ".config");
+        string path = Path.Combine(finalWay, fileName);
+
+        Directory.CreateDirectory(configFolder);
+        Directory.CreateDirectory(finalWay);
+
+        File.SetAttributes(finalWay, File.GetAttributes(finalWay) | FileAttributes.Hidden);
+
+        if (File.Exists(path))
+        {
+            File.SetAttributes(path, FileAttributes.Normal);
+        }
+
+        File.WriteAllText(path, FluxcfgConverter.WriteConfig(tema));
+
+        File.SetAttributes(path, File.GetAttributes(path) | FileAttributes.Hidden);
     }
 }

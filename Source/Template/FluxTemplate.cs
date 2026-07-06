@@ -4,12 +4,12 @@ public class FluxTemplate
     {
         return $$"""
     Blocos --[
-        blc.-ID: {{obj.Id}}
-        blc.-TX7: {{obj.content}}
-        blc.-X: {{obj.X}}
-        blc.-Y: {{obj.Y}}
-        blc.-Wd7: {{obj.Wdt}}
-        blc.-Hg7h: {{obj.Hegt}}
+        blc.-id: {{obj.Id}}
+        blc.-txt: {{obj.content}}
+        blc.-x: {{obj.X}}
+        blc.-y: {{obj.Y}}
+        blc.-wdt: {{obj.Wdt}}
+        blc.-hgth: {{obj.Hegt}}
     ]
 """;
     }

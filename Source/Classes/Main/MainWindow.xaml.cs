@@ -1,9 +1,11 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using System.Windows;
 
 namespace Fluxogrammer.Source;
 public partial class MainWindow : Window
 {
+
     public MainWindow()
     {
         InitializeComponent();
@@ -11,9 +13,8 @@ public partial class MainWindow : Window
         MenuButtonsActions.GetButtonNew(NewButton);
         MenuButtonsActions.GetButtonLoad(LoadButton);
 
+        CreateArchives();
         Check();
-
-        ColorFont.Change("Padrão");
 
         OpenConfig.Click += (s, e) =>
         {
@@ -50,5 +51,40 @@ public partial class MainWindow : Window
     public void ChangeBackground(object color)
     {
         this.Background = (System.Windows.Media.Brush)color;
+    }
+
+    public static void CreateArchives()
+    {
+        string mainWay = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        string fluxogramaFolder = Path.Combine(mainWay, "Fluxogramas");
+        string DataCenter = Path.Combine(fluxogramaFolder, "DataCenter");
+
+        string Backup = Path.Combine(fluxogramaFolder, "Backup");
+        string Config = Path.Combine(fluxogramaFolder, ".config");
+
+        Directory.CreateDirectory(DataCenter);
+        Directory.CreateDirectory(Backup);
+        Directory.CreateDirectory(Config);
+
+        File.SetAttributes(Backup, File.GetAttributes(Backup) | FileAttributes.Hidden);
+        File.SetAttributes(Config, File.GetAttributes(Config) | FileAttributes.Hidden);
+
+        ReadConfig(Config);
+    }
+
+    public static void ReadConfig(string configWay)
+    {
+        string[] archive = Directory.GetFiles(configWay);
+
+        string archiveName;
+
+        foreach (string levels in archive)
+        {
+            archiveName = Path.GetFileName(levels);
+            string path = Path.Combine(configWay, archiveName);
+            Console.WriteLine(path);
+            FluxcfgReader.Connect(path);
+        }
     }
 }
