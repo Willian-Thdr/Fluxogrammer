@@ -12,7 +12,6 @@ public partial class ProjWindow : Window
 
     public ProjWindow()
     {
-        int x = 0;
         DispatcherTimer timer = new DispatcherTimer();
         InitializeComponent();
 
@@ -28,7 +27,8 @@ public partial class ProjWindow : Window
 
             item1.Click += (s2, e2) =>
             {
-                x++;
+                List<Grid> bloco = ProjectCanva.Children.OfType<Grid>().ToList();
+                int x = bloco.Count;
 
                 Connect(ProjectCanva, x, projetoInfo);
             };
@@ -98,6 +98,7 @@ public partial class ProjWindow : Window
         string path = Path.Combine(path3, title + ".flux");
         projetoInfo.Nome = title;
         projetoInfo.objetos.Clear();
+        projetoInfo.linhas.Clear();
 
         foreach (Grid bloco in canva.Children.OfType<Grid>())
         {
@@ -111,6 +112,15 @@ public partial class ProjWindow : Window
                 Y = Canvas.GetTop(bloco),
                 Wdt = bloco.Width,
                 Hegt = bloco.ActualHeight
+            });
+        }
+
+        foreach (Connection conn in GetPointObject.connections)
+        {
+            projetoInfo.linhas.Add(new Linhas()
+            {
+                OrigemId = conn.Origem.Dados.Id,
+                DestinoId = conn.Destino.Dados.Id
             });
         }
 

@@ -26,13 +26,9 @@ public class FluxConverter
             foreach (Linhas linhas in projeto.linhas)
             {
                 y++;
-
+                
+                writer.WriteLine("");
                 writer.WriteLine(FluxTemplate.TemplateLines(linhas));
-
-                if (projeto.linhas.Count > 1 && y < projeto.linhas.Count)
-                {
-                    writer.WriteLine("");
-                }
             }
 
             writer.WriteLine(")");

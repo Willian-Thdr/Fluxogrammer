@@ -60,6 +60,8 @@ public class ObjectInteract
 
                     BlocoVisual outroBloco = connection.Origem == bloco ? connection.Destino : connection.Origem;
                     outroBloco.Connections.Remove(connection);
+
+                    GetPointObject.connections.Remove(connection);
                 }
             }; 
 

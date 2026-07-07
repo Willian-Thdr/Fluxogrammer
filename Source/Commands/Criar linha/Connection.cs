@@ -5,8 +5,8 @@ using static CreateObject;
 
 public class Connection
 {
-    public BlocoVisual Origem { get; }
-    public BlocoVisual Destino { get; }
+    public  BlocoVisual Origem { get; set; }
+    public BlocoVisual Destino { get; set; }
     public static Point inicioPoint { get; set; }
     public static Point destinoPoint { get; set; }
 
