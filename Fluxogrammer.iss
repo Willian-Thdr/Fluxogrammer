@@ -2,10 +2,10 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 ; Non-commercial use only
 
-#define MyAppName "Fluxogrammer-v0.1-beta.6"
-#define MyAppVersion "0.1-beta.6"
-#define MyAppPublisher "Willian-Thdr"
-#define MyAppURL "https://github.com/Willian-Thdr"
+#define MyAppName "Fluxogrammer-v0.1.0"
+#define MyAppVersion "0.1.0"
+#define MyAppPublisher "Williwn-Thdr"
+#define MyAppURL "https://github.com/users/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{827B90EB-7908-4BC0-BCD2-45140B875C2C}
+AppId={{404F9D57-C9E9-4799-825D-9206A4FF1FA0}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -40,7 +40,7 @@ InfoAfterFile=S:\Projetos\Fluxogrammer\README.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 OutputDir=S:\Output projetos compilados\Fluxogrammer
-OutputBaseFilename=setup-v0.1-beta.6
+OutputBaseFilename=setup-v0.1.0
 SolidCompression=yes
 WizardStyle=modern dynamic polar
 
