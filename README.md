@@ -1,4 +1,4 @@
-# Fluxogrammer v0.1-beta.6
+# Fluxogrammer v0.1.0
 
 ### Introduction
 

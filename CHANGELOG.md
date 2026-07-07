@@ -1,13 +1,19 @@
-# Fluxogrammer v0.1-beta.6
+# Fluxogrammer v0.1.0
 
-## Release Note
+## Release Notes
 
 ### Changes
 
-- The file will be automatically saved in the project folder;
-- The program checks the latest version and automatically updates the Software.
+- Added a settings menu;
+- Project theme switching mechanism (light, dark, and default);
+- Created a custom file format (.fluxcfg) for saving settings;
 
-### Resolved Issues
+### Issues Resolved
 
-- Autosave will occur every 5 minutes;
-- Program crash when loading a project.
+- Saving of non-existent lines within the project.
+
+### Additions for Next Version
+
+- Encryption for file security;
+- Additional settings to allow for greater software customization;
+- 90-degree curvature for path lines.
