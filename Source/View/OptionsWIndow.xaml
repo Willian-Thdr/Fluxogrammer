@@ -42,7 +42,7 @@
                 Converter={StaticResource BindingDivide}, ConverterParameter=2}" 
 
                 Y2="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Window}}" 
-                StrokeThickness="2"/>
+                StrokeThickness="2" Style="{DynamicResource LineStyle}"/>
 
                 <Label Canvas.Left="20" Canvas.Top="170" Content="Tema do programa:"
                 FontSize="14pt" Width="175"/>

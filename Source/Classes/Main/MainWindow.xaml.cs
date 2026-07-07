@@ -62,10 +62,16 @@ public partial class MainWindow : Window
 
         string Backup = Path.Combine(fluxogramaFolder, "Backup");
         string Config = Path.Combine(fluxogramaFolder, ".config");
+        string path = Path.Combine(Config, "config.fluxcfg");
 
         Directory.CreateDirectory(DataCenter);
         Directory.CreateDirectory(Backup);
         Directory.CreateDirectory(Config);
+
+        if (!File.Exists(path))
+        {
+            ColorFont.Change("Padrão");
+        }
 
         File.SetAttributes(Backup, File.GetAttributes(Backup) | FileAttributes.Hidden);
         File.SetAttributes(Config, File.GetAttributes(Config) | FileAttributes.Hidden);
@@ -76,14 +82,13 @@ public partial class MainWindow : Window
     public static void ReadConfig(string configWay)
     {
         string[] archive = Directory.GetFiles(configWay);
-
         string archiveName;
 
         foreach (string levels in archive)
         {
             archiveName = Path.GetFileName(levels);
             string path = Path.Combine(configWay, archiveName);
-            Console.WriteLine(path);
+
             FluxcfgReader.Connect(path);
         }
     }

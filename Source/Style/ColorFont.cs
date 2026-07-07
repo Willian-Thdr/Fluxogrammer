@@ -1,5 +1,6 @@
 using System.IO;
 using System.Windows;
+using Fluxogrammer.Source;
 using Microsoft.Win32;
 
 public class ColorFont
@@ -7,7 +8,6 @@ public class ColorFont
     private static ResourceDictionary? _dicAtual;
     public static void Change(string? tema)
     {
-
         string CaminhoTema = tema switch
         {
             "Padrão" => "Source/Style/Default.xaml",
@@ -28,6 +28,7 @@ public class ColorFont
         _dicAtual = dict;
 
         SaveTheme(tema);
+        OptionsWindow.nameLabel = tema;
     }
 
     private static void SaveTheme(string tema)
