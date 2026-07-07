@@ -38,7 +38,7 @@ public class CreateObject
         Canvas.SetTop(bloco.Grid, obj.Y);
 
         ObjectMove.Connect(canva, bloco, projetoInfo);
-        ObjectInteract.Connect(canva, bloco, obj);
+        ObjectInteract.Connect(canva, bloco, obj, projetoInfo);
 
         canva.Children.Add(bloco.Grid);
 
@@ -77,7 +77,7 @@ public class CreateObject
             Border = new Border()
             {
                 Style = (Style)Application.Current.FindResource("BorderStyles"),
-                BorderThickness = new Thickness(2),
+                BorderThickness = new Thickness(3),
                 CornerRadius = new CornerRadius(18)
             };
     

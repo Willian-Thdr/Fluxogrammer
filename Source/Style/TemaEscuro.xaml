@@ -4,12 +4,13 @@
     <SolidColorBrush x:Key="WindowBackground" Color="#1c1c1c"/>
     <SolidColorBrush x:Key="LineColor" Color="#c5c5c5"/>
     <SolidColorBrush x:Key="TextBrushes" Color="#c5c5c5"/>
-    <SolidColorBrush x:Key="Borders" Color="#c5c5c5"/>
+    <SolidColorBrush x:Key="Borders" Color="#512376"/>
     <SolidColorBrush x:Key="BackgroundText" Color="#c5c5c5"/>
     <SolidColorBrush x:Key="ButtonsBackground" Color="#c5c5c5"/>
-    <SolidColorBrush x:Key="ButtonsForeground" Color="#000000"/>
+    <SolidColorBrush x:Key="ButtonsForeground" Color="#1c1c1c"/>
     <SolidColorBrush x:Key="BackgroundPopup" Color="#c5c5c5"/>
     <SolidColorBrush x:Key="ButtonsThemeBorders" Color="#1c1c1c"/>
     <SolidColorBrush x:Key="ButtonsThemeBackground" Color="Transparent"/>
-    <SolidColorBrush x:Key="ButtonsThemeForeground" Color="#000000"/>
+    <SolidColorBrush x:Key="ButtonsThemeForeground" Color="#1c1c1c"/>
+    <SolidColorBrush x:Key="TextBoxBrushes" Color="#1c1c1c"/>
 </ResourceDictionary>

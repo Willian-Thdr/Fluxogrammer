@@ -2,8 +2,10 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using static CreateObject;
 public class ObjectInteract 
-{ 
-    public static void Connect(Canvas canva, BlocoVisual bloco, Objeto obj) 
+{
+    public static Connection connection;
+
+    public static void Connect(Canvas canva, BlocoVisual bloco, Objeto obj, ProjetoInfo projeto) 
     { 
         bloco.Grid.PreviewMouseRightButtonDown += (s, e) => 
         { 
@@ -31,7 +33,7 @@ public class ObjectInteract
             }; 
 
             Expandir.Click += (s2, e2) => 
-            {
+            {                
                 bloco.Grid.Height= double.NaN;
                 bloco.Grid.UpdateLayout();
                 obj.Hegt = bloco.Grid.ActualHeight;
@@ -51,6 +53,14 @@ public class ObjectInteract
             item4.Click += (s2, e2) => 
             { 
                 canva.Children.Remove(bloco.Grid);
+
+                foreach (Connection connection in bloco.Connections)
+                {
+                    canva.Children.Remove(connection.Linha);
+
+                    BlocoVisual outroBloco = connection.Origem == bloco ? connection.Destino : connection.Origem;
+                    outroBloco.Connections.Remove(connection);
+                }
             }; 
 
             item5.Click += (s2, e2) =>
@@ -77,5 +87,5 @@ public class ObjectInteract
 
             menu.IsOpen = true; 
         }; 
-    } 
+    }
 }

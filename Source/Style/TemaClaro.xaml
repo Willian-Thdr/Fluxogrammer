@@ -12,4 +12,5 @@
     <SolidColorBrush x:Key="ButtonsThemeBorders" Color="#649eeb"/>
     <SolidColorBrush x:Key="ButtonsThemeBackground" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="ButtonsThemeForeground" Color="#000000"/>
+    <SolidColorBrush x:Key="TextBoxBrushes" Color="#000000"/>
 </ResourceDictionary>

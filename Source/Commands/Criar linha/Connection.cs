@@ -19,7 +19,7 @@ public class Connection
 
         Linha = new Line
         {
-            Stroke = Brushes.Black,
+            Style = (Style)Application.Current.FindResource("LineStyle"),
             StrokeThickness = 2
         };
 

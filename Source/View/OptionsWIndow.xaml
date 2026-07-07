@@ -27,24 +27,6 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-
-            <!-- <Style x:Key="ButtonTheme" TargetType="Button">
-                <Setter Property="Background" Value="{DynamicResource ButtonsThemeBackground}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonsThemeBorders}"/>
-                <Setter Property="Foreground" Value="{DynamicResource ButtonsThemeForeground}"/>
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style> -->
         </Window.Resources>
 
         <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
