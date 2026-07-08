@@ -10,16 +10,16 @@ public class Connection
     public static Point inicioPoint { get; set; }
     public static Point destinoPoint { get; set; }
 
-    public Line Linha { get; set; }
+    public Path Linha { get; set; }
 
     public Connection(BlocoVisual origem, BlocoVisual destino)
     {
         Origem = origem;
         Destino = destino;
 
-        Linha = new Line
+        Linha = new Path
         {
-            Style = (Style)Application.Current.FindResource("LineStyle"),
+            Style = (Style)Application.Current.FindResource("PathStyle"),
             StrokeThickness = 2
         };
 
@@ -31,9 +31,6 @@ public class Connection
         inicioPoint = GetPointObject.Calcular(Origem.Dados, Destino.Dados);
         destinoPoint = GetPointObject.Calcular(Destino.Dados, Origem.Dados);
 
-        Linha.X1 = inicioPoint.X;
-        Linha.Y1 = inicioPoint.Y;
-        Linha.X2 = destinoPoint.X;
-        Linha.Y2 = destinoPoint.Y;
+        Linha.Data = LineCurve.CriarCurva(inicioPoint, destinoPoint);
     }
 }

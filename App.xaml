@@ -16,6 +16,10 @@
             <Setter Property="Foreground" Value="{DynamicResource TextBrushes}"/>
         </Style>
 
+        <Style x:Key="PathStyle" TargetType="Path">
+            <Setter Property="Stroke" Value="{DynamicResource LineColor}"/>
+        </Style>
+
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="BorderBrush" Value="{DynamicResource Borders}"/>
             <Setter Property="Background" Value="{DynamicResource ButtonsBackground}"/>
