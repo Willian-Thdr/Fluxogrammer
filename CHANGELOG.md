@@ -1,19 +1,16 @@
-# Fluxogrammer v0.1.0
+# Fluxogrammer v0.1.1
 
 ## Release Notes
 
 ### Changes
 
-- Added a settings menu;
-- Project theme switching mechanism (light, dark, and default);
-- Created a custom file format (.fluxcfg) for saving settings;
+- 90-degree line curvature, providing a smooth look.
 
 ### Issues Resolved
 
-- Saving of non-existent lines within the project.
+- Line loading when the project was finalized.
 
 ### Additions for Next Version
 
 - Encryption for file security;
-- Additional settings to allow for greater software customization;
-- 90-degree curvature for path lines.
+- Additional settings to allow for greater software customization.

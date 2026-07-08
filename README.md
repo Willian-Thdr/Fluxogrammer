@@ -1,4 +1,4 @@
-# Fluxogrammer v0.1.0
+# Fluxogrammer v0.1.1
 
 ### Introduction
 
@@ -21,11 +21,6 @@ Below is a step-by-step guide on how the program works:
 4. When an object is created, you can: create a connection from it (which requires two objects); rename it; expand or collapse the block (useful if the text is too long); or delete it.
 
 5. To create a connection, click the left mouse button on the object you wish to connect to.
-
-## Note
-
-The program is still under development. Everything currently published is subject to change, but the version currently available is fully functional. If you encounter any bugs or errors, please contact me via the email listed in my profile, and I will work on fixing them. Feel free to reach out with any ideas or suggestions; I am open to making modifications to suit a variety of preferences.
-Thank you.
 
 ## Credits:
 
