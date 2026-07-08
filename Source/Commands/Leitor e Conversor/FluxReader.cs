@@ -47,12 +47,12 @@ public class Fluxreader
             {
                 projetoInfo.linhas.Add(new Linhas()
                 {
-                    OrigemId = linha.Substring(12).Trim()
+                    OrigemId = linha.Substring(15).Trim().Trim(':')
                 });  
             }
             else if (linha.StartsWith("ln.-cnct_dstn:"))
             {
-                projetoInfo.linhas[^1].DestinoId = linha.Substring(13).Trim(); 
+                projetoInfo.linhas[^1].DestinoId = linha.Substring(15).Trim(' ').Trim(':'); 
             }
         }
 

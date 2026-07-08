@@ -66,11 +66,11 @@ public partial class ProjWindow : Window
 
         foreach(Objeto obj in proj.objetos)
         {
-            BlocoVisual bloco = CreateFromFile(ProjectCanva, obj, projetoInfo);
+            BlocoVisual bloco = CreateFromFile(ProjectCanva, obj, proj);
             mapa[obj.Id] = bloco;
         }
 
-        CalcularDeArquivo(projetoInfo, mapa, ProjectCanva);
+        CalcularDeArquivo(proj, mapa, ProjectCanva);
     }
 
     public void CalcularDeArquivo(ProjetoInfo projetoInfo, Dictionary<string, BlocoVisual> mapa, Canvas canva)

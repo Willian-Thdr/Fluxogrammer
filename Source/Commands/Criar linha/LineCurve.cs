@@ -6,9 +6,10 @@ public static class LineCurve
     public static PathGeometry CriarCurva(Point origem, Point destino)
     {
         double dx = destino.X - origem.X;
+        double offset = Math.Abs(dx) * 0.5;
 
-        Point Control1 = new Point(origem.X + dx * 0.5, origem.Y);
-        Point Control2 = new Point(origem.X + dx * 0.5, destino.Y);
+        Point Control1 = new Point(origem.X + offset * 2, origem.Y);
+        Point Control2 = new Point(origem.X - 1, destino.Y);
 
         PathFigure figure = new PathFigure
         {
