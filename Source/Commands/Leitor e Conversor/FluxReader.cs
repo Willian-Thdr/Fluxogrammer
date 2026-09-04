@@ -5,16 +5,7 @@ public class Fluxreader
 {
     public static void Connect(string way)
     {
-        string salt = File.ReadAllText(way).Trim();
-        string textDecrypt = Encrypt.Decrypt(salt, Environment.GetEnvironmentVariable("Fluxogrammer_Keys", EnvironmentVariableTarget.User));
-
-        using (StreamWriter writer = new StreamWriter(way))
-        {
-            writer.WriteLine(textDecrypt);
-            writer.Close();
-        };
-
-        string[] content = File.ReadAllLines(way);
+        string[] content = Checker(way);
         ProjetoInfo projetoInfo = new();
         Objeto? objeto = null;
 
@@ -70,5 +61,21 @@ public class Fluxreader
         proj.Title = projetoInfo.Nome;
         proj.LoadProj(projetoInfo);
         proj.Show();
+    }
+    
+    private static string Checker(string way)
+    {
+        string fileContent = File.ReadAllText(way);
+        string key = Environment.GetEnvironmentVariable("Fluxogrammer_Keys", EnvironmentVariableTarget.User);
+        
+        try
+        {
+            string txt = Encrypt.Decrypt(fileContent.Trim(), key);
+            return txt.Split("\n");
+        }
+        catch (Exception)
+        {
+            return fileContent.Split("\n");
+        }
     }
 }
