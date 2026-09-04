@@ -20,48 +20,48 @@ public class Fluxreader
 
         foreach(string line in content)
         {
-            string linha = line.Trim();
+            string lines = line.Trim();
 
-            if (linha.StartsWith("ProjectName"))
+            if (lines.StartsWith("ProjectName"))
             {
-                projetoInfo.Nome = linha.Replace("ProjectName:", "").Replace("--(", "").Trim();
+                projetoInfo.Nome = lines.Replace("ProjectName:", "").Replace("--(", "").Trim();
             } 
-            else if (linha.StartsWith("blc.-id:"))
+            else if (lines.StartsWith("blc.-id:"))
             {
                 objeto = new Objeto();
-                objeto.Id = linha.Substring(8).Trim();    
+                objeto.Id = lines.Substring(8).Trim();    
                 projetoInfo.objetos.Add(objeto);
             }
-            else if (linha.StartsWith("blc.-txt:"))
+            else if (lines.StartsWith("blc.-txt:"))
             {
-                objeto.content = linha.Substring(10);
+                objeto.content = lines.Substring(10);
             }
-            else if (linha.StartsWith("blc.-x:"))
+            else if (lines.StartsWith("blc.-x:"))
             {
-                objeto.X = double.Parse(linha.Substring(7));
+                objeto.X = double.Parse(lines.Substring(7));
             }
-            else if (linha.StartsWith("blc.-y:"))
+            else if (lines.StartsWith("blc.-y:"))
             {
-                objeto.Y = double.Parse(linha.Substring(7));
+                objeto.Y = double.Parse(lines.Substring(7));
             }
-            else if (linha.StartsWith("blc.-wdt:"))
+            else if (lines.StartsWith("blc.-wdt:"))
             {
-                objeto.Wdt = double.Parse(linha.Substring(9));
+                objeto.Wdt = double.Parse(lines.Substring(9));
             }
-            else if (linha.StartsWith("blc.-hgth:"))
+            else if (lines.StartsWith("blc.-hgth:"))
             {
-                objeto.Hegt = double.Parse(linha.Substring(10));
+                objeto.Hegt = double.Parse(lines.Substring(10));
             } 
-            else if (linha.StartsWith("ln.-cnct_orgm:"))
+            else if (lines.StartsWith("ln.-cnct_orgm:"))
             {
                 projetoInfo.linhas.Add(new Linhas()
                 {
-                    OrigemId = linha.Substring(15).Trim().Trim(':')
-                });  
+                    OrigemId = lines.Substring(14).Trim()
+                });
             }
-            else if (linha.StartsWith("ln.-cnct_dstn:"))
+            else if (lines.StartsWith("ln.-cnct_dstn:"))
             {
-                projetoInfo.linhas[^1].DestinoId = linha.Substring(15).Trim(' ').Trim(':'); 
+                projetoInfo.linhas[^1].DestinoId = lines.Substring(14).Trim();
             }
         }
 

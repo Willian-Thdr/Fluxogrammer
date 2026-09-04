@@ -11,6 +11,8 @@ public class FluxConverter
         {
             writer.WriteLine($"ProjectName: {projeto.Nome} --(");
 
+            writer.WriteLine("  Blocos [");
+
             foreach (Objeto obj in projeto.objetos)
             {
                 x++;
@@ -22,17 +24,25 @@ public class FluxConverter
                     writer.WriteLine("");
                 }
             }
+            writer.WriteLine("  ]\n");
+
+            writer.WriteLine("  Linhas [");
 
             foreach (Linhas linhas in projeto.linhas)
             {
                 y++;
                 
-                writer.WriteLine("");
                 writer.WriteLine(FluxTemplate.TemplateLines(linhas));
+
+                if (linhas.DestinoId.Count() > 1 && y < linhas.DestinoId.Count())
+                {
+                    writer.WriteLine("");
+                }
             }
 
+            writer.WriteLine("  ]");
+
             writer.WriteLine(")");
-    
             writer.Close();
         }
 
