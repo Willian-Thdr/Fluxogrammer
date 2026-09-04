@@ -1,5 +1,6 @@
 bin/
 obj/
+Service/
 *.user
 *.exe
 CheckerVersion.js

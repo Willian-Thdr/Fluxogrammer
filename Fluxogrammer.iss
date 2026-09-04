@@ -2,10 +2,10 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 ; Non-commercial use only
 
-#define MyAppName "Fluxogrammer-v0.1.1"
-#define MyAppVersion "0.1.1"
+#define MyAppName "Fluxogrammer"
+#define MyAppVersion "0.2.0"
 #define MyAppPublisher "Willian-Thdr"
-#define MyAppURL "https://github.com/users/Willian-Thdr"
+#define MyAppURL "https://github.com/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{7FAAFE23-1F04-4B77-9FF4-A5778413120C}
+AppId={{CD09A358-E7A1-42FE-A50A-5FEC8717B0D7}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -22,7 +22,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\Fluxogrammer
+DefaultDirName={autopf}\{#MyAppName}
 UninstallDisplayIcon={app}\{#MyAppExeName}
 ; "ArchitecturesAllowed=x64compatible" specifies that Setup cannot run
 ; on anything but x64 and Windows 11 on Arm.
@@ -34,15 +34,15 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
-LicenseFile=S:\Projetos\Fluxogrammer\LICENSE
-InfoBeforeFile=S:\Projetos\Fluxogrammer\CHANGELOG.md
-InfoAfterFile=S:\Projetos\Fluxogrammer\README.md
+LicenseFile=D:\Projetos\Fluxogrammer\LICENSE
+InfoBeforeFile=D:\Projetos\Fluxogrammer\README.md
+InfoAfterFile=D:\Projetos\Fluxogrammer\CHANGELOG.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
-OutputDir=S:\Output projetos compilados\Fluxogrammer
-OutputBaseFilename=setup-v0.1.1
+OutputDir=D:\Output projetos compilados\Fluxogrammer
+OutputBaseFilename=setup
 SolidCompression=yes
-WizardStyle=modern polar
+WizardStyle=modern dynamic
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -52,7 +52,7 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "S:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
