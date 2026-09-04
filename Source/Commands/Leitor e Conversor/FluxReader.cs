@@ -5,6 +5,15 @@ public class Fluxreader
 {
     public static void Connect(string way)
     {
+        string salt = File.ReadAllText(way).Trim();
+        string textDecrypt = Encrypt.Decrypt(salt, Environment.GetEnvironmentVariable("Fluxogrammer_Keys", EnvironmentVariableTarget.User));
+
+        using (StreamWriter writer = new StreamWriter(way))
+        {
+            writer.WriteLine(textDecrypt);
+            writer.Close();
+        };
+
         string[] content = File.ReadAllLines(way);
         ProjetoInfo projetoInfo = new();
         Objeto? objeto = null;

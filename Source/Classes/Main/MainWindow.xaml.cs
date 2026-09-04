@@ -1,14 +1,26 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows;
 
 namespace Fluxogrammer.Source;
 public partial class MainWindow : Window
 {
-
     public MainWindow()
     {
         InitializeComponent();
+
+        byte[] salt = RandomNumberGenerator.GetBytes(16);
+
+        string? key = Environment.GetEnvironmentVariable("Fluxogrammer_Keys", EnvironmentVariableTarget.User);
+
+        if (key == null)
+        {
+            string saltString = Convert.ToBase64String(salt);
+            Console.WriteLine("Não existe");
+            Environment.SetEnvironmentVariable("Fluxogrammer_Keys", saltString, EnvironmentVariableTarget.User);
+            Console.WriteLine("Criado");
+        }
 
         MenuButtonsActions.GetButtonNew(NewButton);
         MenuButtonsActions.GetButtonLoad(LoadButton);
@@ -25,7 +37,7 @@ public partial class MainWindow : Window
 
     public async void Check()
     {
-        string actualVersion = "v0.1.0";
+        string actualVersion = "v0.1.1";
         string? lastVersion = await VersionChecker.GetLastVersion();
     
         if (lastVersion != actualVersion && lastVersion != null)

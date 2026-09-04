@@ -92,7 +92,7 @@ public partial class ProjWindow : Window
     private static void SaveProj(Canvas canva, string title)
     {
         string way = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-        string path2 = Path.Combine(way, @"Fluxogramas\DataCenter");
+        string path2 = Path.Combine(way, "Fluxogramas", "DataCenter");
         string path3 = Path.Combine(path2, title);
         Directory.CreateDirectory(path3);
         string path = Path.Combine(path3, title + ".flux");
@@ -124,13 +124,13 @@ public partial class ProjWindow : Window
             });
         }
 
-        FluxConverter.Save(path, projetoInfo);
+        FluxConverter.Save(path, projetoInfo, path3, title);
     } 
 
     private static void SaveBackup(Canvas canva, string title)
     {
         string way = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-        string path2 = Path.Combine(way, @"Fluxogramas\Backup");
+        string path2 = Path.Combine(way, "Fluxogramas", "Backup");
         string path3 = Path.Combine(path2, title);
 
         Directory.CreateDirectory(path3);
@@ -162,6 +162,6 @@ public partial class ProjWindow : Window
             });
         }
 
-        FluxConverter.Save(path, projetoInfo);
+        FluxConverter.Save(path, projetoInfo, path3, title);
     } 
 } 
