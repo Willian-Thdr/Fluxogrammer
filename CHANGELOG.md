@@ -1,16 +1,15 @@
-# Fluxogrammer v0.1.1
+# Fluxogrammer v0.2.0
 
 ## Release Notes
 
 ### Changes
 
-- 90-degree line curvature, providing a smooth look.
+- An encryption system that ensures greater file security.
 
 ### Issues Resolved
 
-- Line loading when the project was finalized.
+- Encryption system.
 
 ### Additions for Next Version
 
-- Encryption for file security;
 - Additional settings to allow for greater software customization.
