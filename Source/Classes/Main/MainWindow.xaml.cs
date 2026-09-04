@@ -53,7 +53,7 @@ public partial class MainWindow : Window
             {
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = "https://github.com/Willian-Thdr/Fluxogrammer/releases/latest",
+                    FileName = "https://github.com/Willian-Thdr/Fluxogrammer/releases/latest/download/setup.exe",
                     UseShellExecute = true
                 });
             }
