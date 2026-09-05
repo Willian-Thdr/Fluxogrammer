@@ -3,7 +3,7 @@
 ; Non-commercial use only
 
 #define MyAppName "Fluxogrammer"
-#define MyAppVersion "0.2.0"
+#define MyAppVersion "0.2.1"
 #define MyAppPublisher "Willian-Thdr"
 #define MyAppURL "https://github.com/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"
@@ -14,7 +14,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{CD09A358-E7A1-42FE-A50A-5FEC8717B0D7}
+AppId={{D4BE952C-2745-41F5-9942-EFD4F6649003}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -53,6 +53,15 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "D:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\D3DCompiler_47_cor3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\Fluxogrammer.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\PenImc_cor3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\PresentationNative_cor3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\vcruntime140_cor3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\bin\Release\net10.0-windows\win-x64\publish\wpfgfx_cor3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\Service\JavascriptService\CheckerVersion.js"; DestDir: "{app}\Service\JavascriptService"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\Service\CSharpService\Check.cs"; DestDir: "{app}\Service\CSharpService"; Flags: ignoreversion
+Source: "D:\Projetos\Fluxogrammer\Service\CSharpService\VersionChecker.cs"; DestDir: "{app}\Service\CSharpService"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
