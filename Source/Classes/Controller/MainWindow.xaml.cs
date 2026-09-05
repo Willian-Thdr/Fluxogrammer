@@ -1,13 +1,12 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Windows;
 using Fluxogrammer.Service.CSharpService;
 
-namespace Fluxogrammer.Source;
+namespace Fluxogrammer.Source.Controller;
 public partial class MainWindow : Window
 {
     public MainWindow()

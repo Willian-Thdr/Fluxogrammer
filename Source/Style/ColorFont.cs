@@ -1,7 +1,6 @@
 using System.IO;
 using System.Windows;
-using Fluxogrammer.Source;
-using Microsoft.Win32;
+using Fluxogrammer.Source.Controller;
 
 public class ColorFont
 {

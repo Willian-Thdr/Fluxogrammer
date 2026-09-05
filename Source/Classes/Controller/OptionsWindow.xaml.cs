@@ -2,7 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
-namespace Fluxogrammer.Source;
+namespace Fluxogrammer.Source.Controller;
 public partial class OptionsWindow : Window
 {
     public static string? nameLabel { get; set; }
