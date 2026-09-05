@@ -5,7 +5,15 @@ public class Fluxreader
 {
     public static void Connect(string way)
     {
-        string[] content = Checker(way);
+        string txt = Checker(way);
+
+        using (StreamWriter writer = new StreamWriter(way))
+        {
+            writer.Write(txt);
+            writer.Close();
+        }
+
+        string[] content = File.ReadAllLines(way);
         ProjetoInfo projetoInfo = new();
         Objeto? objeto = null;
 
@@ -71,11 +79,11 @@ public class Fluxreader
         try
         {
             string txt = Encrypt.Decrypt(fileContent.Trim(), key);
-            return txt.Split("\n");
+            return txt;
         }
         catch (Exception)
         {
-            return fileContent.Split("\n");
+            return fileContent;
         }
     }
 }
