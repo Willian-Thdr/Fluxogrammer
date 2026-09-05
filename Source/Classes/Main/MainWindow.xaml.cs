@@ -38,19 +38,18 @@ public partial class MainWindow : Window
 
     public async void Check()
     {
-        string actualVersion = "v0.2.0";
+        string actualVersion = "v0.2.1";
         string? lastVersion = await VersionChecker.GetLastVersion();
     
         if (lastVersion != actualVersion && lastVersion != null)
         {
-            MessageBoxResult resultado = MessageBox.Show(
-                $"Uma nova versão está disponível: {lastVersion}\nDeseja baixar agora?",
+            int choose = NotificationWindow.Connect(
                 "Atualização disponível",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Information
+                $"Uma nova versão está disponível: {lastVersion}\nDeseja baixar agora?",
+                0x04 | 0x20
             );
 
-            if (resultado == MessageBoxResult.Yes)
+            if (choose == 6)
             {
                 Process.Start(new ProcessStartInfo
                 {

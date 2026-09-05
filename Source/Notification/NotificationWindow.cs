@@ -13,9 +13,9 @@ public class NotificationWindow
         uint type
     );
 
-    public static void Connect(string title, string message, uint type)
+    public static int Connect(string title, string message, uint type)
     {
-        MessageBox(IntPtr.Zero, message, title, type);
+        return MessageBox(IntPtr.Zero, message, title, type);
     }
 
     public Window Notification(string content, string color, Brush foreground)
