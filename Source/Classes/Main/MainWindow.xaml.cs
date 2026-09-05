@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
-using System.Windows.Media;
 using System.IO;
 using System.Security.Cryptography;
 using System.Windows;
+using Fluxogrammer.Service.CSharpService;
 
 namespace Fluxogrammer.Source;
 public partial class MainWindow : Window
@@ -27,37 +27,53 @@ public partial class MainWindow : Window
         MenuButtonsActions.GetButtonLoad(LoadButton);
 
         CreateArchives();
-        Check();
+
+        string way = AppContext.BaseDirectory;
+        string path = Path.Combine(way, "Service", "JavascriptService", "CheckerVersion.js");
+        Console.WriteLine(path);
+        
+        try
+        {
+            ProcessStartInfo process = new ProcessStartInfo
+            {
+                FileName = "node",
+                Arguments = "--version",
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                UseShellExecute = false
+            };
+    
+            using Process node = Process.Start(process)!;
+            string output = node.StandardOutput.ReadToEnd();
+            Console.WriteLine(output);
+            node.WaitForExit();
+    
+            if (output.Trim().StartsWith("v"))
+            {
+                ProcessStartInfo start = new ProcessStartInfo
+                {
+                    FileName = "node",
+                    Arguments = $"\"{path}\"",
+                    CreateNoWindow = true,
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false
+                };
+
+                using Process startNode = Process.Start(start)!;
+                string startOutput = startNode.StandardOutput.ReadToEnd();
+                Console.WriteLine(startOutput);
+            }
+        } catch (System.ComponentModel.Win32Exception)
+        {
+            NotificationWindow.Connect("ERROR", "Servidor não pode ser iniciado.\n Requisição: Node.js", 0x00 | 0x10);
+            Check.Connect();
+        }
 
         OpenConfig.Click += (s, e) =>
         {
             OptionsWindow options = new();
             options.Show();
         };
-    }
-
-    public async void Check()
-    {
-        string actualVersion = "v0.2.1";
-        string? lastVersion = await VersionChecker.GetLastVersion();
-    
-        if (lastVersion != actualVersion && lastVersion != null)
-        {
-            int choose = NotificationWindow.Connect(
-                "Atualização disponível",
-                $"Uma nova versão está disponível: {lastVersion}\nDeseja baixar agora?",
-                0x04 | 0x20
-            );
-
-            if (choose == 6)
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "https://github.com/Willian-Thdr/Fluxogrammer/releases/latest/download/setup.exe",
-                    UseShellExecute = true
-                });
-            }
-        }
     }
 
     public static void CreateArchives()
