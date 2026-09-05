@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Security.Cryptography;
+using System.Text.Json;
 using System.Windows;
 using Fluxogrammer.Service.CSharpService;
 
@@ -28,9 +31,8 @@ public partial class MainWindow : Window
 
         CreateArchives();
 
-        string way = AppContext.BaseDirectory;
-        string path = Path.Combine(way, "Service", "JavascriptService", "CheckerVersion.js");
-        Console.WriteLine(path);
+        // string way = AppContext.BaseDirectory;
+        string path = Path.Combine("Service", "JavascriptService", "CheckerVersion.js");
         
         try
         {
@@ -45,7 +47,6 @@ public partial class MainWindow : Window
     
             using Process node = Process.Start(process)!;
             string output = node.StandardOutput.ReadToEnd();
-            Console.WriteLine(output);
             node.WaitForExit();
     
             if (output.Trim().StartsWith("v"))
@@ -59,6 +60,7 @@ public partial class MainWindow : Window
                 };
 
               Process.Start(start);
+              ContactCompare();
             }
         } catch (System.ComponentModel.Win32Exception)
         {
@@ -71,6 +73,34 @@ public partial class MainWindow : Window
             OptionsWindow options = new();
             options.Show();
         };
+    }
+
+    private async void ContactCompare()
+    {
+        HttpClient client = new();
+        string result = await client.GetStringAsync("http://localhost:3000/version");
+        JsonDocument json = JsonDocument.Parse(result);
+
+        bool needUpdate = json.RootElement.GetProperty("need update").GetBoolean();
+        string? actualVersion = json.RootElement.GetProperty("actual version").GetString();
+        string? thisVersion = json.RootElement.GetProperty("this version").GetString();        
+
+        if (needUpdate)
+        {
+            int choose = NotificationWindow.Connect("Notificação", 
+            "Este programa necessita de uma atualização\n" +
+            $"Versão atual: {thisVersion}\núltima versão lançada: {actualVersion}",
+            0x04 | 0x20);
+
+            if (choose == 6)
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "https://github.com/Willian-Thdr/Fluxogrammer/releases/latest/download/setup.exe",
+                    UseShellExecute = true
+                });
+            }
+        }
     }
 
     public static void CreateArchives()
