@@ -55,13 +55,10 @@ public partial class MainWindow : Window
                     FileName = "node",
                     Arguments = $"\"{path}\"",
                     CreateNoWindow = true,
-                    RedirectStandardOutput = true,
                     UseShellExecute = false
                 };
 
-                using Process startNode = Process.Start(start)!;
-                string startOutput = startNode.StandardOutput.ReadToEnd();
-                Console.WriteLine(startOutput);
+              Process.Start(start);
             }
         } catch (System.ComponentModel.Win32Exception)
         {
