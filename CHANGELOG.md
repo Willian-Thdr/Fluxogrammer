@@ -1,14 +1,15 @@
-# Fluxogrammer v0.2.0
+# Fluxogrammer v0.2.1
 
 ## Release Notes
 
 ### Changes
 
-- An encryption system that ensures greater file security.
+- Upgrade in update systems;
+- Created a js API.
 
 ### Issues Resolved
 
-- Encryption system.
+NaN
 
 ### Additions for Next Version
 
