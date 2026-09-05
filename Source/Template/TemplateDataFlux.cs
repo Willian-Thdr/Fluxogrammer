@@ -1,9 +1,12 @@
 using System.Data;
+using System.Windows.Media;
 using System.IO;
 using Fluxogrammer.Source;
 
 public class TemplateDataFlux
 {
+    private static NotificationWindow error = new NotificationWindow();
+
     public static void TemplateArchive(string name, string? description, Action close)
     {
         string mainWay = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -21,9 +24,7 @@ public class TemplateDataFlux
         
         if (string.IsNullOrEmpty(name))
         {
-            WindowError error = new WindowError();
-            error.Connect("ERRO: Campo de nome está vazio. Por favor, preencha-o.");
-            error.ShowDialog();
+            error.Notification("ERRO: Campo de nome está vazio. Por favor, preencha-o.", "#1d1d1d", Brushes.Red).ShowDialog();
             return;
         } 
     
@@ -45,9 +46,7 @@ public class TemplateDataFlux
 
         if (Path.Exists(path))
         {
-            WindowError error = new WindowError();
-            error.Connect("ERRO: Arquivo com esse nome já existente.");
-            error.ShowDialog();            
+            error.Notification("ERRO: Arquivo com esse nome já existente.", "#1d1d1d", Brushes.Red).ShowDialog();
         }
         else
         {

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Windows.Media;
 using System.IO;
 using System.Security.Cryptography;
 using System.Windows;
@@ -58,11 +59,6 @@ public partial class MainWindow : Window
                 });
             }
         }
-    }
-
-    public void ChangeBackground(object color)
-    {
-        this.Background = (System.Windows.Media.Brush)color;
     }
 
     public static void CreateArchives()

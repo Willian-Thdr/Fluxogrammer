@@ -76,6 +76,11 @@ public class Fluxreader
         string fileContent = File.ReadAllText(way);
         string key = Environment.GetEnvironmentVariable("Fluxogrammer_Keys", EnvironmentVariableTarget.User);
         
+        if (string.IsNullOrEmpty(fileContent))
+        {
+            throw new Exception("ERROR: Tha's file is empty or corrupted");
+        }
+
         try
         {
             string txt = Encrypt.Decrypt(fileContent.Trim(), key);
