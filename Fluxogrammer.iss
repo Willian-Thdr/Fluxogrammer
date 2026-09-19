@@ -3,7 +3,7 @@
 ; Non-commercial use only
 
 #define MyAppName "Fluxogrammer"
-#define MyAppVersion "0.2.1"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "Willian-Thdr"
 #define MyAppURL "https://github.com/Willian-Thdr"
 #define MyAppExeName "Fluxogrammer.exe"

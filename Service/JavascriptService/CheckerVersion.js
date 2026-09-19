@@ -1,4 +1,4 @@
-const thisVersion = "v0.2.1";
+const thisVersion = "v1.0.0";
 const urlVersion = "https://api.github.com/repos/Willian-Thdr/Fluxogrammer/releases/latest";
 const http = require("http");
 let actualVersion;
