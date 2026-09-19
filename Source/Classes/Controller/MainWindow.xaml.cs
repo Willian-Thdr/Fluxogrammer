@@ -15,14 +15,19 @@ public partial class MainWindow : Window
 
         byte[] salt = RandomNumberGenerator.GetBytes(16);
 
-        string? key = Environment.GetEnvironmentVariable("Fluxogrammer_Keys", EnvironmentVariableTarget.User);
-
-        if (key == null)
+        try {
+            string? key = Environment.GetEnvironmentVariable("Fluxogrammer_Keys", EnvironmentVariableTarget.User);
+    
+            if (key == null)
+            {
+                string saltString = Convert.ToBase64String(salt);
+                Console.WriteLine("Não existe");
+                Environment.SetEnvironmentVariable("Fluxogrammer_Keys", saltString, EnvironmentVariableTarget.User);
+                Console.WriteLine("Criado");
+            }
+        } catch (Exception e)
         {
-            string saltString = Convert.ToBase64String(salt);
-            Console.WriteLine("Não existe");
-            Environment.SetEnvironmentVariable("Fluxogrammer_Keys", saltString, EnvironmentVariableTarget.User);
-            Console.WriteLine("Criado");
+            throw new Exception($"ERROR: {e}");
         }
 
         MenuButtonsActions.GetButtonNew(NewButton);

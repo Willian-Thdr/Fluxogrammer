@@ -31,16 +31,16 @@
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
         <Canvas>
-            <Label FontSize="24pt" Height="44" HorizontalContentAlignment="Center" VerticalAlignment="Center"
+            <Label FontSize="24pt" Height="52" HorizontalContentAlignment="Center" VerticalAlignment="Center"
             Canvas.Left="0" Canvas.Top="20" Content="Fluxogrammer Menu" Canvas.Right="0" 
             Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}"/>
 
-            <Button Content="Novo Fluxograma" Height="36" HorizontalAlignment="Center" 
-            VerticalAlignment="Center" Canvas.Left="100" Canvas.Top="84" 
+            <Button Content="Novo Fluxograma" Height="38" HorizontalAlignment="Center" 
+            VerticalAlignment="Center" Canvas.Left="100" Canvas.Top="92" 
             Style="{StaticResource BotaoMenu}" Padding="10,5" x:Name="NewButton"/>
 
-            <Button Content="Carregar Fluxograma" Height="36" HorizontalAlignment="Center" 
-            VerticalAlignment="Center" Canvas.Right="100" Canvas.Top="84" 
+            <Button Content="Carregar Fluxograma" Height="38" HorizontalAlignment="Center" 
+            VerticalAlignment="Center" Canvas.Right="100" Canvas.Top="92" 
             Style="{StaticResource BotaoMenu}" Padding="10,5" x:Name="LoadButton"/>
 
             <Button Content="&#xE713;" FontFamily="Segoe MDL2 Assets" 
