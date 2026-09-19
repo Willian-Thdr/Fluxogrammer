@@ -1,15 +1,16 @@
-# Fluxogrammer v0.2.1
+# Fluxogrammer v1.0.0
 
 ## Release Notes
 
 ### Changes
 
-- Upgrade in update systems;
-- Created a js API.
+- Bug fix in Key creation;
+- Bug fix in lines saving;
+- Number version changed.
 
 ### Issues Resolved
 
-NaN
+- Nothing;
 
 ### Additions for Next Version
 
