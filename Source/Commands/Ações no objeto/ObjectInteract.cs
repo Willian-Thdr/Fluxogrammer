@@ -60,8 +60,10 @@ public class ObjectInteract
 
                     BlocoVisual outroBloco = connection.Origem == bloco ? connection.Destino : connection.Origem;
                     outroBloco.Connections.Remove(connection);
+                    string id = bloco.Dados.Id;
 
                     GetPointObject.connections.Remove(connection);
+                    projeto.linhas.RemoveAll(linha => linha.OrigemId == id || linha.DestinoId == id);
                 }
             }; 
 

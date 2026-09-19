@@ -5,7 +5,7 @@ public class Check
 {
     public static async void Connect()
     {
-        string actualVersion = "v0.2.1";
+        string actualVersion = "v1.0.0";
         string? lastVersion = await VersionChecker.GetLastVersion();
     
         if (lastVersion != actualVersion && lastVersion != null)

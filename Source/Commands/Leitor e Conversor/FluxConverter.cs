@@ -45,6 +45,7 @@ public class FluxConverter
             writer.WriteLine(")");
             writer.Close();
         }
+        Console.WriteLine(File.ReadAllText(fileWay));
 
         #pragma warning disable CS8604 // Possible null reference argument.
 

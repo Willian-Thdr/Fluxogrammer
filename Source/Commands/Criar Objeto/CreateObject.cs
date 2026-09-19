@@ -5,14 +5,14 @@ using System.Windows.Media;
 
 public class CreateObject
 {
-    public static void Connect(Canvas canva, int x, ProjetoInfo projetoInfo)
+    public static void Connect(Canvas canva, ProjetoInfo projetoInfo)
     {
         Point mouse = Mouse.GetPosition(canva);
 
         Objeto objeto = new Objeto()
         {
-            Id = $"Object_{x}",
-            content = $"Novo objeto {x}",
+            Id = $"Object_{Guid.NewGuid():N}",
+            content = "Novo objeto",
             X = mouse.X - 50,
             Y = mouse.Y - 12.5,
             Wdt = 125,

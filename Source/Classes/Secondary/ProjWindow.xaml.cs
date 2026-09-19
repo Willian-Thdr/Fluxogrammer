@@ -9,6 +9,7 @@ namespace Fluxogrammer.Source;
 public partial class ProjWindow : Window 
 {
     public static ProjetoInfo projetoInfo = new();
+    public static List<Grid> bloco;
 
     public ProjWindow()
     {
@@ -27,10 +28,9 @@ public partial class ProjWindow : Window
 
             item1.Click += (s2, e2) =>
             {
-                List<Grid> bloco = ProjectCanva.Children.OfType<Grid>().ToList();
-                int x = bloco.Count;
+                bloco = ProjectCanva.Children.OfType<Grid>().ToList();
 
-                Connect(ProjectCanva, x, projetoInfo);
+                Connect(ProjectCanva, projetoInfo);
             };
 
             save.Click += (s2, e2) =>
